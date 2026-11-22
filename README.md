@@ -12,13 +12,12 @@ Both pages share the same design and script. When you change content (projects, 
 - `script.js`: menu, scroll animations, portfolio filters, contact form
 
 ## Things to replace
-1. **Email / Instagram:** search for `yourstudio` (lowercase) to find the placeholder email and Instagram handle (both HTML files and script.js).
+1. **Contact:** the site shows no email, phone or Instagram on purpose. Clients reach you only through the contact form.
 2. **Projects:** in the `WORK` section, set each `href` to your sample site's link and update the title and category.
    To show a screenshot, put `img/project1.jpg` in an `img` folder and replace the `<span>` inside `.work__img` with
    `<img src="img/project1.jpg" alt="Project name">`.
    Categories: `food`, `services`, `shop` (the filter buttons use these).
 3. **Prices:** replace `€XXX` / `€XX`.
-4. **Contact:** email, phone and Instagram in the `CONTACT` section, plus `CONTACT_EMAIL` in script.js.
 5. **Testimonials:** add real client quotes when you have them.
 
 ## After changing styles.css or script.js

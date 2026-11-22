@@ -1,21 +1,16 @@
-// ========== YourStudio — site script ==========
-
-// Your email: used as a fallback while the Formspree form isn't set up yet.
-const CONTACT_EMAIL = "andrei.stefan.email@gmail.com";
+// ========== Stack Studio — site script ==========
 
 // Texts used by the script, per language (the page's <html lang="..."> decides)
 const TEXT = {
   ro: {
-    subject: "Cerere nouă de ofertă — site",
     sending: "Se trimite…",
     success: "Mulțumim! Îți răspundem în cel mult 24 de ore.",
-    error: `A apărut o problemă. Scrie-ne direct la ${CONTACT_EMAIL}.`,
+    error: "A apărut o problemă la trimitere. Te rugăm să încerci din nou peste câteva minute.",
   },
   en: {
-    subject: "New website inquiry",
     sending: "Sending…",
     success: "Thanks! We'll get back to you within 24 hours.",
-    error: `Something went wrong. Please email us at ${CONTACT_EMAIL}.`,
+    error: "Something went wrong while sending. Please try again in a few minutes.",
   },
 };
 const t = TEXT[document.documentElement.lang] || TEXT.ro;
@@ -78,19 +73,12 @@ filters.forEach((btn) =>
   })
 );
 
-// Contact form: sends via Formspree once configured, otherwise opens email app
+// Contact form: sends through Formspree without leaving the page
 const form = document.getElementById("contactForm");
 const status = document.getElementById("formStatus");
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
   const data = new FormData(form);
-
-  if (form.action.includes("YOUR_FORM_ID")) {
-    const body = [...data.entries()].map(([k, v]) => `${k}: ${v}`).join("\n");
-    window.location.href =
-      `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(t.subject)}&body=${encodeURIComponent(body)}`;
-    return;
-  }
 
   status.textContent = t.sending;
   try {
