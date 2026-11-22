@@ -219,7 +219,7 @@ p { margin: 0 0 1em; }
   position: absolute; top: -13px; left: 2rem; background: var(--accent); color: var(--accent-ink);
   font-size: .8rem; font-weight: 600; padding: .3em .9em; border-radius: 999px;
 }
-.pricing__note { text-align: center; margin-top: 2.5rem; color: var(--ink-soft); }
+.pricing__note { text-align: center; margin: 2.5rem auto 0; max-width: 760px; color: var(--ink-soft); }
 
 /* ---------- Testimonials ---------- */
 .quote { margin: 0; padding: 2.5rem; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); }
