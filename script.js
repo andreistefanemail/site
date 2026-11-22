@@ -1,7 +1,7 @@
 // ========== YourStudio — site script ==========
 
 // Your email: used as a fallback while the Formspree form isn't set up yet.
-const CONTACT_EMAIL = "hello@yourstudio.com";
+const CONTACT_EMAIL = "andrei.stefan.email@gmail.com";
 
 // Texts used by the script, per language (the page's <html lang="..."> decides)
 const TEXT = {

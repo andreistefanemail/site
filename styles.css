@@ -210,6 +210,7 @@ p { margin: 0 0 1em; }
 .plan li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
 .plan__price { font: 700 2.6rem var(--font-head); margin: .3rem 0; letter-spacing: -.02em; }
 .plan__price small { font-size: .9rem; font-weight: 500; color: var(--ink-soft); }
+.plan__monthly { font: 600 .95rem var(--font-head); color: var(--highlight); margin: -.2rem 0 .8rem; }
 .plan__desc { color: var(--ink-soft); }
 .plan--featured { background: var(--dark); color: #fff; border-color: var(--dark); transform: scale(1.03); box-shadow: var(--shadow); }
 .plan--featured .plan__price small, .plan--featured .plan__desc { color: #aaa; }
