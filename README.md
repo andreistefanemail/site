@@ -25,10 +25,8 @@ Both pages share the same design and script. When you change content (projects, 
 Browsers keep these files for a while. Bump the number in `styles.css?v=2` / `script.js?v=2`
 (in both HTML files) to `v=3`, `v=4`… so visitors get the new version right away.
 
-## Contact form (GitHub Pages can't process forms)
-1. Create a free form at https://formspree.io
-2. Copy your form ID and replace `YOUR_FORM_ID` in index.html.
-Until then, the form opens the visitor's email app with the message filled in.
+## Contact form
+The form sends through Formspree (form ID `xaeolyvn`, set in both HTML files). Messages arrive at the email on the Formspree account.
 
 ## Deploy to GitHub Pages
 1. Create a new repo, e.g. `yourstudio-site`, and upload these files to it.
