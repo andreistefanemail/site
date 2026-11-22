@@ -1,23 +1,28 @@
 /* ==========================================================
-   YourStudio — custom stylesheet
+   Stack Studio — custom stylesheet
    Change the brand in one place: the variables below.
    ========================================================== */
 :root {
-  /* Brand colors */
-  --green: #3b5e51;         /* rgb(59, 94, 81) */
-  --teal: #50b9a4;          /* rgb(80, 185, 164) */
+  /* Brand palette (lavender field) */
+  --mist: #b5d8de;          /* lightest aqua */
+  --sea: #93b9c1;           /* soft blue-green */
+  --stone: #6b929c;         /* muted teal */
+  --slate: #3f5f6e;         /* deep slate blue */
+  --purple: #7a6593;        /* dusty purple */
+  --lavender: #b8a7d9;      /* light lavender */
 
-  --accent: var(--green);   /* buttons, labels, icons on light backgrounds */
+  --accent: var(--slate);   /* buttons, logo on light backgrounds */
   --accent-ink: #ffffff;
-  --accent-light: var(--teal); /* accent on dark backgrounds */
-  --ink: #142019;
-  --ink-soft: #52605a;
-  --bg: #f6f8f7;
-  --bg-tint: #e9efec;
+  --highlight: var(--purple);  /* labels, icons */
+  --accent-light: var(--lavender); /* accent on dark backgrounds */
+  --ink: #16252c;
+  --ink-soft: #50636b;
+  --bg: #f4f8f9;
+  --bg-tint: #e4eff1;
   --card: #ffffff;
-  --line: #d9e2de;
-  --dark: #16241f;
-  --dark-soft: #1f322b;
+  --line: #d3e2e5;
+  --dark: #1c2c34;
+  --dark-soft: #253a44;
   --radius: 18px;
   --font-head: "Space Grotesk", system-ui, sans-serif;
   --font-body: "Inter", system-ui, sans-serif;
@@ -51,7 +56,7 @@ p { margin: 0 0 1em; }
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: .12em;
-  color: var(--accent);
+  color: var(--highlight);
   margin-bottom: 1rem;
 }
 
@@ -77,7 +82,7 @@ p { margin: 0 0 1em; }
 /* ---------- Nav ---------- */
 .nav {
   position: sticky; top: 0; z-index: 50;
-  background: rgba(246, 248, 247, .85);
+  background: rgba(244, 248, 249, .85);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid transparent;
   transition: border-color .3s;
@@ -120,7 +125,7 @@ p { margin: 0 0 1em; }
 .hl { position: relative; white-space: nowrap; }
 .hl::after {
   content: ""; position: absolute; left: -.05em; right: -.05em; bottom: .08em; height: .32em;
-  background: var(--teal); opacity: .45; z-index: -1; border-radius: 4px;
+  background: var(--lavender); opacity: .6; z-index: -1; border-radius: 4px;
 }
 .hero__lead { font-size: clamp(1.05rem, 2vw, 1.3rem); color: var(--ink-soft); max-width: 46ch; }
 .hero__cta { display: flex; flex-wrap: wrap; gap: 1rem; margin: 2rem 0 3.5rem; }
@@ -131,7 +136,7 @@ p { margin: 0 0 1em; }
   position: absolute; right: -12vw; top: 8%;
   width: min(48vw, 620px); aspect-ratio: 1;
   border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%;
-  background: conic-gradient(from 200deg, var(--green), var(--teal), #a9e2d6, var(--teal), var(--green));
+  background: conic-gradient(from 200deg, var(--stone), var(--mist), var(--lavender), var(--purple), var(--sea), var(--stone));
   filter: blur(2px);
   opacity: .9;
   animation: blob 14s ease-in-out infinite alternate;
@@ -145,7 +150,7 @@ p { margin: 0 0 1em; }
 .section--tint { background: var(--bg-tint); }
 .section--dark { background: var(--dark); color: #f3f3f3; }
 /* On dark green backgrounds, swap the accent to a light green so it stays readable */
-.section--dark, .plan--featured, .footer { --accent: var(--accent-light); --accent-ink: #10201a; }
+.section--dark, .plan--featured, .footer { --accent: var(--accent-light); --accent-ink: #1c2c34; --highlight: var(--lavender); }
 .section--dark .btn--ghost { color: #fff; border-color: #fff; }
 .section__head { margin-bottom: 3rem; max-width: 720px; }
 
@@ -162,7 +167,7 @@ p { margin: 0 0 1em; }
 .card p { color: var(--ink-soft); margin: 0; }
 .card__icon {
   width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center;
-  background: color-mix(in srgb, var(--accent) 14%, white); color: var(--accent);
+  background: color-mix(in srgb, var(--highlight) 14%, white); color: var(--highlight);
   font-size: 1.3rem; margin-bottom: 1.25rem;
 }
 
@@ -245,7 +250,7 @@ p { margin: 0 0 1em; }
 .form { background: var(--dark-soft); border-radius: var(--radius); padding: 2rem; display: grid; gap: 1.1rem; }
 .form label { display: grid; gap: .4rem; font-size: .9rem; color: #bbb; }
 .form input, .form select, .form textarea {
-  font: 1rem var(--font-body); color: #fff; background: #101b17; border: 1px solid #2f453d;
+  font: 1rem var(--font-body); color: #fff; background: #15222a; border: 1px solid #34505c;
   border-radius: 12px; padding: .85em 1em; width: 100%; transition: border-color .2s;
 }
 .form input:focus, .form select:focus, .form textarea:focus { outline: none; border-color: var(--accent); }

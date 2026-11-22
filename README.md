@@ -1,4 +1,4 @@
-# YourStudio website
+# Stack Studio website
 
 Custom agency site: plain HTML, CSS and JavaScript, with no build step and no template.
 
@@ -12,7 +12,7 @@ Both pages share the same design and script. When you change content (projects, 
 - `script.js`: menu, scroll animations, portfolio filters, contact form
 
 ## Things to replace
-1. **Name:** search for `YourStudio` (in index.html and script.js) and replace it.
+1. **Email / Instagram:** search for `yourstudio` (lowercase) to find the placeholder email and Instagram handle (both HTML files and script.js).
 2. **Projects:** in the `WORK` section, set each `href` to your sample site's link and update the title and category.
    To show a screenshot, put `img/project1.jpg` in an `img` folder and replace the `<span>` inside `.work__img` with
    `<img src="img/project1.jpg" alt="Project name">`.
