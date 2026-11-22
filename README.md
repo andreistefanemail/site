@@ -21,6 +21,10 @@ Both pages share the same design and script. When you change content (projects, 
 4. **Contact:** email, phone and Instagram in the `CONTACT` section, plus `CONTACT_EMAIL` in script.js.
 5. **Testimonials:** add real client quotes when you have them.
 
+## After changing styles.css or script.js
+Browsers keep these files for a while. Bump the number in `styles.css?v=2` / `script.js?v=2`
+(in both HTML files) to `v=3`, `v=4`… so visitors get the new version right away.
+
 ## Contact form (GitHub Pages can't process forms)
 1. Create a free form at https://formspree.io
 2. Copy your form ID and replace `YOUR_FORM_ID` in index.html.
