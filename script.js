@@ -264,3 +264,85 @@ form.addEventListener("submit", async (e) => {
   render();
   requestAnimationFrame(frame);
 })();
+
+// ========== Background dots that grow and shrink in random waves ==========
+(function () {
+  var canvas = document.createElement('canvas');
+  if (!canvas.getContext) return;
+  var ctx = canvas.getContext('2d');
+  canvas.className = 'dot-waves';
+  canvas.setAttribute('aria-hidden', 'true');
+  document.body.insertBefore(canvas, document.body.firstChild);
+  document.documentElement.classList.add('has-dot-waves');
+
+  var GAP = 26;            // distance between dots (px), same as the old grid
+  var MIN_R = 0.3;         // smallest dot radius (px)
+  var MAX_R = 2.9;         // biggest dot radius (px)
+  var COLOR = 'rgba(63, 95, 110, .26)'; // --slate
+  var FPS = 30;
+
+  // A few waves with random direction, size, speed and starting point (new on every load)
+  function rand(a, b) { return a + Math.random() * (b - a); }
+  var waves = [];
+  for (var n = 0; n < 3; n++) {
+    var angle = rand(0, Math.PI * 2), length = rand(260, 720);
+    waves.push({
+      kx: Math.cos(angle) * 2 * Math.PI / length,
+      ky: Math.sin(angle) * 2 * Math.PI / length,
+      speed: rand(0.25, 0.7) * (Math.random() < 0.5 ? -1 : 1),
+      phase: rand(0, Math.PI * 2)
+    });
+  }
+  // One slow ripple spreading out from a random point
+  var ripple = { x: rand(0.15, 0.85), y: rand(0.1, 0.6), k: 2 * Math.PI / rand(320, 520), speed: rand(0.4, 0.8) };
+
+  var w = 0, h = 0, dpr = 1;
+  function resize() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    w = window.innerWidth; h = window.innerHeight;
+    canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function draw(time) {
+    var t = time / 1000;
+    var rx = ripple.x * w, ry = ripple.y * h;
+    ctx.clearRect(0, 0, w, h);
+    ctx.fillStyle = COLOR;
+    ctx.beginPath();
+    for (var y = 1; y < h + GAP; y += GAP) {
+      for (var x = 1; x < w + GAP; x += GAP) {
+        var s = 0;
+        for (var k = 0; k < waves.length; k++) {
+          var v = waves[k];
+          s += Math.sin(v.kx * x + v.ky * y + v.speed * t + v.phase);
+        }
+        var dx = x - rx, dy = y - ry;
+        s += Math.sin(Math.sqrt(dx * dx + dy * dy) * ripple.k - ripple.speed * t);
+        s = s / (waves.length + 1) * 2.1;         // stretch so crests and troughs stand out
+        if (s > 1) s = 1; else if (s < -1) s = -1;
+        var e = (s + 1) / 2;                      //  0 … 1
+        var r = MIN_R + (MAX_R - MIN_R) * Math.pow(e, 1.6);
+        ctx.moveTo(x + r, y);
+        ctx.arc(x, y, r, 0, Math.PI * 2);
+      }
+    }
+    ctx.fill();
+  }
+
+  resize();
+  window.addEventListener('resize', function () { resize(); draw(performance.now()); });
+
+  // Visitors who prefer less motion get one still frame
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    draw(0);
+    return;
+  }
+
+  var lastDraw = 0;
+  function loop(now) {
+    if (!document.hidden && now - lastDraw >= 1000 / FPS) { draw(now); lastDraw = now; }
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+})();

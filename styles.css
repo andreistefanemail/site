@@ -393,13 +393,20 @@ body::before {
   animation: ssBgDrift 28s ease-in-out infinite alternate;
 }
 
-/* Fine dot grid, fading toward the edges */
+/* Fine dot grid, fading toward the edges.
+   Static fallback (shown if JavaScript is off); script.js swaps it for
+   animated "wave" dots on a canvas and adds .has-dot-waves to <html>. */
 body::after {
   background-image: radial-gradient(circle at 1px 1px, rgba(63, 95, 110, .22) 1.1px, transparent 0); /* --slate */
   background-size: 26px 26px;
+}
+body::after,
+.dot-waves {
   -webkit-mask-image: radial-gradient(120% 90% at 50% 30%, #000 30%, rgba(0, 0, 0, .25) 100%);
           mask-image: radial-gradient(120% 90% at 50% 30%, #000 30%, rgba(0, 0, 0, .25) 100%);
 }
+.has-dot-waves body::after { display: none; }
+.dot-waves { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1; }
 
 @keyframes ssBgDrift {
   to { transform: translate3d(-3%, 2%, 0) scale(1.06); }
