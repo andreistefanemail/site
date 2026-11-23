@@ -370,3 +370,41 @@ p { margin: 0 0 1em; }
   .sbh { gap: 36px; }
   .sbh-status { font-size: 12.5px; gap: 10px; }
 }
+
+/* ---------- Page background: dot grid + soft brand glows ----------
+   Paste at the END of styles.css. Uses your existing palette variables'
+   colors (sea, lavender, mist, slate). Sections with their own background
+   (.section--tint, .section--dark, footer) stay as they are. */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Soft color glows that drift very slowly */
+body::before {
+  background:
+    radial-gradient(38vmax 38vmax at 8% 0%,   rgba(147, 185, 193, .45), transparent 70%), /* --sea */
+    radial-gradient(34vmax 34vmax at 100% 55%, rgba(184, 167, 217, .38), transparent 70%), /* --lavender */
+    radial-gradient(30vmax 30vmax at 20% 100%, rgba(181, 216, 222, .45), transparent 70%); /* --mist */
+  animation: ssBgDrift 28s ease-in-out infinite alternate;
+}
+
+/* Fine dot grid, fading toward the edges */
+body::after {
+  background-image: radial-gradient(circle at 1px 1px, rgba(63, 95, 110, .22) 1.1px, transparent 0); /* --slate */
+  background-size: 26px 26px;
+  -webkit-mask-image: radial-gradient(120% 90% at 50% 30%, #000 30%, rgba(0, 0, 0, .25) 100%);
+          mask-image: radial-gradient(120% 90% at 50% 30%, #000 30%, rgba(0, 0, 0, .25) 100%);
+}
+
+@keyframes ssBgDrift {
+  to { transform: translate3d(-3%, 2%, 0) scale(1.06); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before { animation: none; }
+}
