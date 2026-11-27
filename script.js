@@ -103,17 +103,17 @@ form.addEventListener("submit", async (e) => {
   var SPEED = 1; // 0.5 = slower, 2 = faster
   var lang = document.documentElement.lang === 'en' ? 'en' : 'ro';
 
-  // Colors come from the Stack Studio tulip palette
+  // Colors come from the Stack Studio forest & cream palette
   var LOOKS = [
-    { bg: '#F3ECE9', ink: '#161010', soft: '#514336', accent: '#AC3531', accentInk: '#FFFFFF', card: '#E2CFC9',
-      font: "'Fraunces', Georgia, serif", panel: '#D9CBC6',
-      shapes: [{ l: 66, t: 12, w: 16, h: 20, r: '50%', c: '#B7958B' }, { l: 12, t: 34, w: 76, h: 48, r: '50%', c: '#AC3531' }, { l: 30, t: 52, w: 40, h: 6, r: '99px', c: '#F3ECE9' }] },
-    { bg: '#F8F3F1', ink: '#2C2222', soft: '#514336', accent: '#5D0E14', accentInk: '#FFFFFF', card: '#EBE1DD',
-      font: "'Plus Jakarta Sans', sans-serif", panel: '#E2CFC9',
-      shapes: [{ l: 18, t: 16, w: 60, h: 66, r: '22px', c: '#FFFFFF' }, { l: 34, t: 32, w: 28, h: 34, r: '50%', c: '#5D0E14' }, { l: 64, t: 62, w: 22, h: 26, r: '50%', c: '#B7958B' }] },
-    { bg: '#EFE8E5', ink: '#161010', soft: '#514336', accent: '#514336', accentInk: '#FFFFFF', card: '#E2D5D0',
-      font: "'Syne', sans-serif", panel: '#D9CBC6',
-      shapes: [{ l: 14, t: 34, w: 26, h: 54, r: '0', c: '#161010' }, { l: 44, t: 14, w: 22, h: 74, r: '0', c: '#514336' }, { l: 70, t: 46, w: 16, h: 42, r: '0', c: '#B7958B' }] }
+    { bg: '#F6F4EE', ink: '#1B2620', soft: '#56615B', accent: '#8A6424', accentInk: '#FFFFFF', card: '#ECE8DD',
+      font: "'Fraunces', Georgia, serif", panel: '#E3D9BC',
+      shapes: [{ l: 66, t: 12, w: 16, h: 20, r: '50%', c: '#D9C27A' }, { l: 12, t: 34, w: 76, h: 48, r: '50%', c: '#8A6424' }, { l: 30, t: 52, w: 40, h: 6, r: '99px', c: '#F6F4EE' }] },
+    { bg: '#F1F5F2', ink: '#15221C', soft: '#3D5248', accent: '#1F5C45', accentInk: '#FFFFFF', card: '#E1EBE5',
+      font: "'Plus Jakarta Sans', sans-serif", panel: '#CFE0D6',
+      shapes: [{ l: 18, t: 16, w: 60, h: 66, r: '22px', c: '#FFFFFF' }, { l: 34, t: 32, w: 28, h: 34, r: '50%', c: '#1F5C45' }, { l: 64, t: 62, w: 22, h: 26, r: '50%', c: '#9DBBA9' }] },
+    { bg: '#EFEDE6', ink: '#1B2620', soft: '#4A554F', accent: '#1B2620', accentInk: '#FFFFFF', card: '#E4E1D8',
+      font: "'Syne', sans-serif", panel: '#D6D2C5',
+      shapes: [{ l: 14, t: 34, w: 26, h: 54, r: '0', c: '#1B2620' }, { l: 44, t: 14, w: 22, h: 74, r: '0', c: '#1F5C45' }, { l: 70, t: 46, w: 16, h: 42, r: '0', c: '#D9C27A' }] }
   ];
 
   var CONTENT = {
@@ -156,8 +156,8 @@ form.addEventListener("submit", async (e) => {
 
   // Timeline (in "ticks", ~60ms each at speed 1)
   var BRAND = 68, IMG = 80, LIVE = 94, OUT = 124, END = 132;
-  var SKEL = '#E8DEDA', NONE = 'transparent', INTER = "'Manrope', sans-serif";
-  var PLAIN = { ink: '#161010', soft: '#5E4F4C' };
+  var SKEL = '#E4E0D5', NONE = 'transparent', INTER = "'Manrope', sans-serif";
+  var PLAIN = { ink: '#1B2620', soft: '#56615B' };
   var CURSORS = [[30, 38], [22, 30], [74, 10], [22, 50]];
 
   var $ = function (s) { return root.querySelector(s); };
@@ -194,7 +194,7 @@ form.addEventListener("submit", async (e) => {
       var w = +el.dataset.w, x = +el.dataset.x;
       if (el.hasAttribute('data-btn')) {
         set(el, 'color', on(x) ? (brand ? b.accentInk : '#FFFFFF') : NONE);
-        set(el, 'backgroundColor', on(w) ? (on(x) ? (brand ? b.accent : '#514336') : SKEL) : NONE);
+        set(el, 'backgroundColor', on(w) ? (on(x) ? (brand ? b.accent : '#1F5C45') : SKEL) : NONE);
       } else {
         var r = el.dataset.r;
         set(el, 'color', on(x) ? (brand ? b[r] : PLAIN[r]) : NONE);
@@ -205,7 +205,7 @@ form.addEventListener("submit", async (e) => {
 
     cards.forEach(function (el) {
       var w = +el.dataset.card;
-      set(el, 'borderColor', on(w) && !brand ? '#E8DEDA' : NONE);
+      set(el, 'borderColor', on(w) && !brand ? '#E4E0D5' : NONE);
       set(el, 'backgroundColor', brand ? b.card : NONE);
       set(el.firstElementChild, 'backgroundColor', on(w) ? (brand ? b.accent : SKEL) : NONE);
     });
@@ -278,7 +278,7 @@ form.addEventListener("submit", async (e) => {
   var GAP = 26;            // distance between dots (px), same as the old grid
   var MIN_R = 0.3;         // smallest dot radius (px)
   var MAX_R = 2.9;         // biggest dot radius (px)
-  var COLOR = 'rgba(93, 14, 20, .2)'; // burgundy
+  var COLOR = 'rgba(31, 92, 69, .22)'; // forest green
   var FPS = 30;
 
   // A few waves with random direction, size, speed and starting point (new on every load)
