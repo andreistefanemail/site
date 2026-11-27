@@ -103,17 +103,17 @@ form.addEventListener("submit", async (e) => {
   var SPEED = 1; // 0.5 = slower, 2 = faster
   var lang = document.documentElement.lang === 'en' ? 'en' : 'ro';
 
-  // Colors come from the Stack Studio forest & cream palette
+  // Colors come from the Stack Studio petrol, ivory and saffron palette
   var LOOKS = [
-    { bg: '#F6F4EE', ink: '#1B2620', soft: '#56615B', accent: '#8A6424', accentInk: '#FFFFFF', card: '#ECE8DD',
-      font: "'Fraunces', Georgia, serif", panel: '#E3D9BC',
-      shapes: [{ l: 66, t: 12, w: 16, h: 20, r: '50%', c: '#D9C27A' }, { l: 12, t: 34, w: 76, h: 48, r: '50%', c: '#8A6424' }, { l: 30, t: 52, w: 40, h: 6, r: '99px', c: '#F6F4EE' }] },
-    { bg: '#F1F5F2', ink: '#15221C', soft: '#3D5248', accent: '#1F5C45', accentInk: '#FFFFFF', card: '#E1EBE5',
-      font: "'Plus Jakarta Sans', sans-serif", panel: '#CFE0D6',
-      shapes: [{ l: 18, t: 16, w: 60, h: 66, r: '22px', c: '#FFFFFF' }, { l: 34, t: 32, w: 28, h: 34, r: '50%', c: '#1F5C45' }, { l: 64, t: 62, w: 22, h: 26, r: '50%', c: '#9DBBA9' }] },
-    { bg: '#EFEDE6', ink: '#1B2620', soft: '#4A554F', accent: '#1B2620', accentInk: '#FFFFFF', card: '#E4E1D8',
-      font: "'Syne', sans-serif", panel: '#D6D2C5',
-      shapes: [{ l: 14, t: 34, w: 26, h: 54, r: '0', c: '#1B2620' }, { l: 44, t: 14, w: 22, h: 74, r: '0', c: '#1F5C45' }, { l: 70, t: 46, w: 16, h: 42, r: '0', c: '#D9C27A' }] }
+    { bg: '#F8F3E6', ink: '#13323D', soft: '#4E6266', accent: '#E8A33D', accentInk: '#0B2F3B', card: '#EFE6CF',
+      font: "'Fraunces', Georgia, serif", panel: '#E9D9B5',
+      shapes: [{ l: 66, t: 12, w: 16, h: 20, r: '50%', c: '#F2B654' }, { l: 12, t: 34, w: 76, h: 48, r: '50%', c: '#134B5F' }, { l: 30, t: 52, w: 40, h: 6, r: '99px', c: '#F8F3E6' }] },
+    { bg: '#EEF4F4', ink: '#0B2F3B', soft: '#3E5A61', accent: '#134B5F', accentInk: '#F8F3E6', card: '#DCE8E9',
+      font: "'Plus Jakarta Sans', sans-serif", panel: '#C9D8D9',
+      shapes: [{ l: 18, t: 16, w: 60, h: 66, r: '22px', c: '#FFFFFF' }, { l: 34, t: 32, w: 28, h: 34, r: '50%', c: '#134B5F' }, { l: 64, t: 62, w: 22, h: 26, r: '50%', c: '#7FA3AC' }] },
+    { bg: '#F3EFE6', ink: '#13323D', soft: '#4E6266', accent: '#0D3A49', accentInk: '#F8F3E6', card: '#E5DFD1',
+      font: "'Syne', sans-serif", panel: '#D5CDBB',
+      shapes: [{ l: 14, t: 34, w: 26, h: 54, r: '0', c: '#0D3A49' }, { l: 44, t: 14, w: 22, h: 74, r: '0', c: '#134B5F' }, { l: 70, t: 46, w: 16, h: 42, r: '0', c: '#E8A33D' }] }
   ];
 
   var CONTENT = {
@@ -156,8 +156,8 @@ form.addEventListener("submit", async (e) => {
 
   // Timeline (in "ticks", ~60ms each at speed 1)
   var BRAND = 68, IMG = 80, LIVE = 94, OUT = 124, END = 132;
-  var SKEL = '#E4E0D5', NONE = 'transparent', INTER = "'Manrope', sans-serif";
-  var PLAIN = { ink: '#1B2620', soft: '#56615B' };
+  var SKEL = '#E6E1D3', NONE = 'transparent', INTER = "'Manrope', sans-serif";
+  var PLAIN = { ink: '#13323D', soft: '#4E6266' };
   var CURSORS = [[30, 38], [22, 30], [74, 10], [22, 50]];
 
   var $ = function (s) { return root.querySelector(s); };
@@ -194,7 +194,7 @@ form.addEventListener("submit", async (e) => {
       var w = +el.dataset.w, x = +el.dataset.x;
       if (el.hasAttribute('data-btn')) {
         set(el, 'color', on(x) ? (brand ? b.accentInk : '#FFFFFF') : NONE);
-        set(el, 'backgroundColor', on(w) ? (on(x) ? (brand ? b.accent : '#1F5C45') : SKEL) : NONE);
+        set(el, 'backgroundColor', on(w) ? (on(x) ? (brand ? b.accent : '#134B5F') : SKEL) : NONE);
       } else {
         var r = el.dataset.r;
         set(el, 'color', on(x) ? (brand ? b[r] : PLAIN[r]) : NONE);
@@ -205,7 +205,7 @@ form.addEventListener("submit", async (e) => {
 
     cards.forEach(function (el) {
       var w = +el.dataset.card;
-      set(el, 'borderColor', on(w) && !brand ? '#E4E0D5' : NONE);
+      set(el, 'borderColor', on(w) && !brand ? '#E6E1D3' : NONE);
       set(el, 'backgroundColor', brand ? b.card : NONE);
       set(el.firstElementChild, 'backgroundColor', on(w) ? (brand ? b.accent : SKEL) : NONE);
     });
@@ -278,7 +278,7 @@ form.addEventListener("submit", async (e) => {
   var GAP = 26;            // distance between dots (px), same as the old grid
   var MIN_R = 0.3;         // smallest dot radius (px)
   var MAX_R = 2.9;         // biggest dot radius (px)
-  var COLOR = 'rgba(31, 92, 69, .22)'; // forest green
+  var COLOR = 'rgba(248, 243, 230, .2)'; // ivory on petrol
   var FPS = 30;
 
   // A few waves with random direction, size, speed and starting point (new on every load)

@@ -3,13 +3,13 @@
    Change the brand in one place: the variables below.
    ========================================================== */
 :root {
-  /* Brand palette (lavender field) */
-  --mist: #b5d8de;          /* lightest aqua */
-  --sea: #93b9c1;           /* soft blue-green */
-  --stone: #6b929c;         /* muted teal */
-  --slate: #3f5f6e;         /* deep slate blue */
-  --purple: #7a6593;        /* dusty purple */
-  --lavender: #b8a7d9;      /* light lavender */
+  /* Legacy names, mapped to the petrol · ivory · saffron palette (see the theme at the end) */
+  --mist: #c9d8d9;          /* soft petrol grey */
+  --sea: #c9d8d9;           /* soft petrol grey */
+  --stone: #134b5f;         /* petrol */
+  --slate: #0d3a49;         /* deep petrol */
+  --purple: #e8a33d;        /* saffron */
+  --lavender: #f2b654;      /* bright saffron */
 
   --accent: var(--slate);   /* buttons, logo on light backgrounds */
   --accent-ink: #ffffff;
@@ -21,8 +21,8 @@
   --bg-tint: #e4eff1;
   --card: #ffffff;
   --line: #d3e2e5;
-  --dark: #1c2c34;
-  --dark-soft: #253a44;
+  --dark: #0d3a49;
+  --dark-soft: #0b2f3b;
   --radius: 18px;
   --font-head: "Space Grotesk", system-ui, sans-serif;
   --font-body: "Inter", system-ui, sans-serif;
@@ -150,7 +150,7 @@ p { margin: 0 0 1em; }
 .section--tint { background: var(--bg-tint); }
 .section--dark { background: var(--dark); color: #f3f3f3; }
 /* On dark green backgrounds, swap the accent to a light green so it stays readable */
-.section--dark, .plan--featured, .footer { --accent: var(--accent-light); --accent-ink: #1c2c34; --highlight: var(--lavender); }
+.section--dark, .plan--featured, .footer { --accent: var(--accent-light); --accent-ink: #0b2f3b; --highlight: var(--lavender); }
 .section--dark .btn--ghost { color: #fff; border-color: #fff; }
 .section__head { margin-bottom: 3rem; max-width: 720px; }
 
@@ -417,132 +417,189 @@ body::after,
 }
 
 /* ==========================================================
-   FOREST & CREAM THEME — calm, trustworthy.
-   Overrides the earlier styles; edit the colors here.
+   PETROL · IVORY · SAFFRON THEME (60-30-10)
+   60% petrol background, 30% ivory, 10% saffron accent.
+   All text pairs meet WCAG AA (4.5:1).
    ========================================================== */
 :root {
-  --f-cream: #f6f4ee;   /* page background */
-  --f-ink: #1b2620;     /* text, projects section */
-  --f-green: #1f5c45;   /* logo, buttons, accent words */
-  --f-bronze: #8a6424;  /* small labels on light */
-  --f-gold: #d9c27a;    /* labels and buttons on dark */
-  --f-deep: #15221c;    /* dark sections */
+  --p-petrol: #134b5f;       /* 60%: page background */
+  --p-petrol-deep: #0d3a49;  /* alternating sections */
+  --p-petrol-ink: #0b2f3b;   /* text on saffron, inputs */
+  --p-ivory: #f8f3e6;        /* 30%: cards, text on petrol */
+  --p-mist: #c9d8d9;         /* secondary text on petrol */
+  --p-saffron: #e8a33d;      /* 10%: buttons, labels, highlights */
+  --p-saffron-text: #f2b654; /* small saffron text on petrol */
+  --p-card-ink: #13323d;     /* text in ivory cards */
+  --p-card-soft: #4e6266;    /* secondary text in ivory cards */
+  --p-card-gold: #8a5a0b;    /* gold text on ivory */
 
-  --accent: var(--f-green);
-  --accent-ink: #ffffff;
-  --highlight: var(--f-bronze);
-  --accent-light: var(--f-gold);
-  --ink: var(--f-ink);
-  --ink-soft: #56615b;
-  --bg: var(--f-cream);
-  --bg-tint: #ece8dd;
-  --card: #ffffff;
-  --line: #e2ded2;
-  --dark: var(--f-deep);
-  --dark-soft: #1e2e26;
+  --noise-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 .22 0 0 0 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --noise-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .32 0 0 0 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+
+  --accent: var(--p-saffron);
+  --accent-ink: var(--p-petrol-ink);
+  --highlight: var(--p-saffron-text);
+  --accent-light: var(--p-saffron-text);
+  --ink: var(--p-ivory);
+  --ink-soft: var(--p-mist);
+  --bg: var(--p-petrol);
+  --bg-tint: var(--p-petrol-deep);
+  --card: var(--p-ivory);
+  --line: rgba(248, 243, 230, .16);
+  --dark: var(--p-petrol-deep);
+  --dark-soft: var(--p-petrol-ink);
   --font-head: "Manrope", system-ui, sans-serif;
   --font-body: "Manrope", system-ui, sans-serif;
   --radius: 18px;
-  --shadow: 0 18px 40px -22px rgba(21, 34, 28, .35);
+  --shadow: 0 20px 44px -24px rgba(3, 20, 26, .6);
 }
+
+/* 1. Petrol velvet: main page background */
+body { background-color: var(--p-petrol); background-image: var(--noise-light); color: var(--p-ivory); }
 
 /* Type */
 h1, h2, h3 { font-weight: 700; letter-spacing: -.025em; line-height: 1.08; }
 h2 { font-size: clamp(2.1rem, 4.4vw, 3.3rem); }
 h3 { font-size: 1.25rem; }
-h1 em, h2 em { font-style: normal; color: var(--f-green); }
-.eyebrow { font-family: var(--font-body); font-weight: 700; font-size: .8rem; letter-spacing: .16em; color: var(--highlight); }
-.hl { color: var(--f-green); }
+h1 em, h2 em { font-style: normal; color: var(--p-saffron-text); }
+.hl { color: var(--p-saffron-text); }
 .hl::after { display: none; }
+.eyebrow { font-family: var(--font-body); font-weight: 700; font-size: .8rem; letter-spacing: .16em; color: var(--highlight); }
 
-/* Buttons */
-.btn { font-weight: 600; }
-.btn:hover { background: #184a37; border-color: #184a37; box-shadow: 0 10px 24px -12px rgba(31, 92, 69, .7); }
-.btn--ghost { color: var(--ink); border-color: var(--ink); background: transparent; }
-.btn--ghost:hover { background: var(--ink); border-color: var(--ink); color: var(--f-cream); box-shadow: none; }
+/* 5. Saffron grain: primary buttons */
+.btn { background-color: var(--p-saffron); background-image: var(--noise-dark); border-color: var(--p-saffron); color: var(--p-petrol-ink); font-weight: 700; }
+.btn:hover { background-color: var(--p-saffron-text); border-color: var(--p-saffron-text); box-shadow: 0 10px 24px -12px rgba(232, 163, 61, .6); }
+.btn--ghost { background: transparent; color: var(--p-ivory); border-color: rgba(248, 243, 230, .55); }
+.btn--ghost:hover { background: var(--p-ivory); color: var(--p-card-ink); border-color: var(--p-ivory); box-shadow: none; }
+.nav__links .btn { color: var(--p-petrol-ink); }
 
-/* Dark sections: gold labels and gold buttons with dark text */
-.section--dark, .plan--featured, .footer {
-  --accent: var(--f-gold); --accent-ink: var(--f-deep); --highlight: var(--f-gold);
+/* Ivory surfaces switch to dark text */
+.card, .plan:not(.plan--featured), .quote, .strip {
+  --ink: var(--p-card-ink); --ink-soft: var(--p-card-soft); --highlight: var(--p-card-gold);
+  --line: rgba(19, 50, 61, .14);
+  color: var(--p-card-ink);
 }
-.section--dark { background: var(--f-deep); color: var(--f-cream); }
-.section--dark h2 em { color: var(--f-gold); }
-.section--dark .btn:hover, .plan--featured .btn:hover { background: #e6d394; border-color: #e6d394; box-shadow: none; }
-.section--dark .btn--ghost { color: var(--f-cream); border-color: rgba(246, 244, 238, .45); }
+/* 2. Ivory paper: cards and the ivory band */
+.card, .plan:not(.plan--featured), .quote, .strip { background-color: var(--p-ivory); background-image: var(--noise-dark); }
+.card, .plan:not(.plan--featured), .quote { border-color: transparent; }
+.plan:not(.plan--featured) .btn--ghost, .card .btn--ghost { color: var(--p-card-ink); border-color: var(--p-card-ink); }
+.plan:not(.plan--featured) .btn--ghost:hover { background: var(--p-card-ink); color: var(--p-ivory); }
 
-/* Nav: light */
-.nav { background: rgba(246, 244, 238, .92); }
-.logo { color: var(--ink); font: 700 1.2rem var(--font-head); letter-spacing: -.01em; }
-.logo__mark { background: var(--f-green); color: #fff; border-radius: 9px; font: 700 1rem var(--font-head); }
-.nav__links a:not(.btn) { color: var(--ink-soft); }
-.nav__links a:not(.btn):hover { color: var(--ink); }
-.lang a.is-active { background: var(--f-green); color: #fff; }
+/* Nav */
+.nav { background: rgba(13, 58, 73, .92); }
+.nav.is-scrolled { border-color: var(--line); }
+.logo { color: var(--p-ivory); font: 700 1.2rem var(--font-head); letter-spacing: -.01em; }
+.logo__mark { background: var(--p-saffron); color: var(--p-petrol-ink); border-radius: 9px; font: 800 1rem var(--font-head); }
+.nav__links a:not(.btn) { color: var(--p-mist); }
+.nav__links a:not(.btn):hover { color: var(--p-ivory); }
+.nav__toggle span { background: var(--p-ivory); }
+.lang { background: rgba(248, 243, 230, .07); border-color: var(--line); }
+.lang a { color: var(--p-mist); }
+.lang a:hover { color: var(--p-ivory); }
+.lang a.is-active { background: var(--p-saffron); color: var(--p-petrol-ink); }
+@media (max-width: 760px) { .nav__links { background: var(--p-petrol-deep); } }
 
-/* Hero: light, with the build animation */
+/* Hero (on petrol velvet) with the build animation */
 .hero--build .hero__title { font-size: clamp(2.6rem, 5.2vw, 4.4rem); max-width: 14ch; }
-.sbh-step.active .n { background: var(--f-green); color: #fff; }
+.sbh-step { color: var(--p-mist); border-top-color: var(--line); }
+.sbh-step.done, .sbh-step.active { color: var(--p-ivory); }
 .sbh-step .n { font-family: var(--font-body); }
-.sbh-live { background: #e3eee8; color: var(--f-green); }
-.sbh-bar i { background: var(--f-green); }
-@keyframes sbhPulse { 0% { box-shadow: 0 0 0 0 rgba(31, 92, 69, .4); } 100% { box-shadow: 0 0 0 1.6cqw rgba(31, 92, 69, 0); } }
+.sbh-step.done .n { background: rgba(248, 243, 230, .12); color: var(--p-ivory); }
+.sbh-step.active .n { background: var(--p-saffron); color: var(--p-petrol-ink); }
+.sbh-step .d { color: var(--p-mist); }
+.sbh-browser { box-shadow: 0 30px 80px -20px rgba(3, 20, 26, .7), 0 0 0 1px rgba(248, 243, 230, .12); }
+.sbh-chrome { background: #f1ecdf; border-bottom-color: #e2dccb; }
+.sbh-dots i { background: #d8d0bd; }
+.sbh-url { border-color: #e2dccb; color: var(--p-card-soft); }
+.sbh-caret { background: var(--p-card-ink); }
+.sbh-live { background: #fbebd0; color: var(--p-card-gold); }
+.sbh-status { color: var(--p-mist); }
+.sbh-status b { color: var(--p-ivory); }
+.sbh-bar { background: rgba(248, 243, 230, .15); }
+.sbh-bar i { background: var(--p-saffron); }
+@keyframes sbhPulse { 0% { box-shadow: 0 0 0 0 rgba(232, 163, 61, .45); } 100% { box-shadow: 0 0 0 1.6cqw rgba(232, 163, 61, 0); } }
 
-/* Green band under the hero */
-.strip { background: var(--f-green); color: var(--f-cream); padding: 28px 0; }
+/* Ivory band under the hero */
+.strip { padding: 28px 0; }
 .strip__list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
 .strip__item { display: flex; align-items: center; gap: 14px; }
-.strip__item svg { flex: none; width: 26px; height: 26px; }
-.strip__item strong { display: block; font: 700 1.15rem/1.15 var(--font-head); }
-.strip__item span { font-size: .88rem; color: rgba(246, 244, 238, .78); }
+.strip__item svg { flex: none; width: 26px; height: 26px; stroke: var(--p-petrol); }
+.strip__item strong { display: block; font: 700 1.15rem/1.15 var(--font-head); color: var(--p-card-ink); }
+.strip__item span { font-size: .88rem; color: var(--p-card-soft); }
 @media (max-width: 760px) { .strip__list { grid-template-columns: 1fr; gap: 1rem; } }
 
 /* Service cards */
-.card { border-color: var(--line); }
-.card__icon { background: var(--bg-tint); color: var(--f-green); border-radius: 12px; }
+.card:hover { box-shadow: var(--shadow); }
+.card__icon { background: rgba(19, 75, 95, .1); color: var(--p-petrol); border-radius: 12px; }
 
-/* Projects: dark forest */
-#work.section--dark { background: var(--f-ink); }
-.filter { color: rgba(246, 244, 238, .7); border-color: rgba(246, 244, 238, .22); }
-.filter:hover { color: var(--f-cream); border-color: rgba(246, 244, 238, .55); }
-.work__meta p { color: rgba(246, 244, 238, .65); }
+/* Alternating deeper sections */
+.section--tint, .section--dark { background: var(--p-petrol-deep); color: var(--p-ivory); }
+.section--dark .btn--ghost { color: var(--p-ivory); border-color: rgba(248, 243, 230, .55); }
+
+/* Projects */
+.filter { color: var(--p-mist); border-color: rgba(248, 243, 230, .28); }
+.filter:hover { color: var(--p-ivory); border-color: rgba(248, 243, 230, .6); }
+.filter.is-active { background: var(--p-saffron); border-color: var(--p-saffron); color: var(--p-petrol-ink); }
+.work__meta h3 { color: var(--p-ivory); }
+.work__meta p { color: var(--p-mist); }
 
 /* Process */
-.step { border-top: 2px solid var(--f-green); }
-.step__n { font-family: var(--font-body); color: var(--f-bronze); }
+.step { border-top: 1px solid rgba(248, 243, 230, .3); }
+.step__n { font-family: var(--font-body); color: var(--p-saffron-text); }
+.step p { color: var(--p-mist); }
 
 /* Pricing */
-.plan { border-color: var(--line); }
 .plan li { border-bottom-color: var(--line); }
-.plan li::before { color: var(--f-green); }
-.plan--featured { background: var(--f-deep); border-color: var(--f-deep); }
-.plan--featured li { border-color: rgba(246, 244, 238, .12); }
-.plan--featured li::before { color: var(--f-gold); }
-.plan--featured .plan__price small, .plan--featured .plan__desc { color: rgba(246, 244, 238, .65); }
-.plan__monthly { color: var(--f-bronze); font-family: var(--font-body); }
-.plan--featured .plan__monthly { color: var(--f-gold); }
+.plan li::before { color: var(--p-card-gold); }
+.plan__monthly { color: var(--p-card-gold); font-family: var(--font-body); }
+.plan--featured { background-color: var(--p-petrol); background-image: var(--noise-light); border: 1px solid rgba(242, 182, 84, .55); color: var(--p-ivory); }
+.plan--featured li { border-color: var(--line); }
+.plan--featured li::before, .plan--featured .plan__monthly { color: var(--p-saffron-text); }
+.plan--featured .plan__price small, .plan--featured .plan__desc { color: var(--p-mist); }
+.plan__badge { background: var(--p-saffron); color: var(--p-petrol-ink); }
+.pricing__note { color: var(--p-mist); }
+.pricing__note strong { color: var(--p-ivory); }
 
 /* Testimonials and FAQ */
-.quote { border-color: var(--line); }
 .quote p { font: 500 1.2rem/1.5 var(--font-body); letter-spacing: 0; }
-.faq summary { font: 600 1.12rem var(--font-head); }
-.faq summary::after { color: var(--f-green); }
+.quote footer { color: var(--p-card-soft); }
+.faq details { border-bottom-color: var(--line); }
+.faq summary { font: 600 1.12rem var(--font-head); color: var(--p-ivory); }
+.faq summary::after { color: var(--p-saffron-text); }
+.faq details p { color: var(--p-mist); }
 .container--narrow h2 { font-size: clamp(2rem, 4vw, 2.9rem); }
 
-/* Contact form on dark */
-.form { background: var(--dark-soft); }
-.form label { color: rgba(246, 244, 238, .72); }
-.form input, .form select, .form textarea { background: #101a15; border-color: #2c3d34; }
-.form__status { color: var(--f-gold); }
-.contact__intro > p { color: rgba(246, 244, 238, .72); }
+/* 3. Petrol art deco: only the Contact section */
+#contact.section--dark {
+  background-color: var(--p-petrol);
+  background-image: repeating-radial-gradient(circle at 50% 100%, rgba(232, 163, 61, .28) 0 1px, transparent 1px 7px),
+                    repeating-radial-gradient(circle at 50% 100%, rgba(232, 163, 61, .28) 0 1px, transparent 1px 7px);
+  background-size: 56px 28px;
+  background-position: 0 0, 28px 14px;
+}
+/* Solid panels so text and fields stay easy to read on the pattern */
+.contact__intro { background: rgba(13, 58, 73, .92); border: 1px solid var(--line); border-radius: var(--radius); padding: 2rem; }
+.contact__intro > p { color: var(--p-mist); }
+.form { background: var(--p-petrol-deep); border: 1px solid var(--line); }
+.form label { color: var(--p-mist); }
+.form input, .form select, .form textarea { background: var(--p-petrol-ink); border-color: rgba(248, 243, 230, .22); color: var(--p-ivory); }
+.form input:focus, .form select:focus, .form textarea:focus { border-color: var(--p-saffron); }
+.form__status { color: var(--p-saffron-text); }
 
 /* Footer */
-.footer { background: var(--f-deep); color: rgba(246, 244, 238, .55); border-top-color: rgba(246, 244, 238, .08); }
-.footer .logo { color: var(--f-cream); }
+.footer { background: var(--p-petrol-deep); color: var(--p-mist); border-top-color: var(--line); }
+.footer .logo { color: var(--p-ivory); }
 
-/* Page background glows in forest tones */
+/* Soft glows over the velvet, in petrol tones (no saffron) */
 body::before {
   background:
-    radial-gradient(38vmax 38vmax at 8% 0%,   rgba(31, 92, 69, .13), transparent 70%),
-    radial-gradient(34vmax 34vmax at 100% 55%, rgba(217, 194, 122, .26), transparent 70%),
-    radial-gradient(30vmax 30vmax at 20% 100%, rgba(138, 100, 36, .08), transparent 70%);
+    radial-gradient(38vmax 38vmax at 8% 0%,   rgba(201, 216, 217, .10), transparent 70%),
+    radial-gradient(34vmax 34vmax at 100% 55%, rgba(13, 58, 73, .55), transparent 70%),
+    radial-gradient(30vmax 30vmax at 20% 100%, rgba(201, 216, 217, .07), transparent 70%);
 }
-body::after { background-image: radial-gradient(circle at 1px 1px, rgba(31, 92, 69, .2) 1.1px, transparent 0); }
+body::after { background-image: radial-gradient(circle at 1px 1px, rgba(248, 243, 230, .16) 1.1px, transparent 0); }
+
+/* Dark sections: same saffron accent (replaces the old lavender override) */
+.section--dark, .section--tint, .plan--featured, .footer {
+  --accent: var(--p-saffron); --accent-ink: var(--p-petrol-ink); --highlight: var(--p-saffron-text);
+}
