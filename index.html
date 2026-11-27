@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#134B5F">
   <title>Stack Studio — Site-uri care îți aduc clienți</title>
   <meta name="description" content="Stack Studio proiectează și programează site-uri personalizate, rapide și moderne pentru afaceri.">
   <meta property="og:title" content="Stack Studio — Site-uri care îți aduc clienți">
@@ -17,14 +18,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600&family=Plus+Jakarta+Sans:wght@600;700&family=Syne:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=11">
+  <link rel="stylesheet" href="styles.css?v=12">
 </head>
 <body>
+  <a class="skip-link" href="#main">Sari la conținut</a>
 
   <!-- ============ NAV ============ -->
   <header class="nav" id="top">
     <div class="container nav__inner">
-      <a href="#top" class="logo"><span class="logo__mark">S</span>Stack Studio</a>
+      <a href="#top" class="logo" translate="no"><span class="logo__mark">S</span>Stack Studio</a>
       <nav class="nav__links" id="navLinks">
         <a href="#services">Servicii</a>
         <a href="#work">Proiecte</a>
@@ -33,17 +35,17 @@
         <a href="#faq">Întrebări</a>
         <a href="#contact" class="btn btn--small">Cere o ofertă</a>
       </nav>
-      <div class="lang" aria-label="Limba / Language">
+      <nav class="lang" aria-label="Limba / Language">
         <a href="./" class="is-active" hreflang="ro" lang="ro" aria-current="true">RO</a>
         <a href="en/" hreflang="en" lang="en">EN</a>
-      </div>
+      </nav>
       <button class="nav__toggle" id="navToggle" aria-label="Deschide meniul" aria-expanded="false">
         <span></span><span></span>
       </button>
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <!-- ============ HERO ============ -->
     <section class="hero hero--build">
       <div class="container sbh">
@@ -132,32 +134,32 @@
         </div>
         <div class="grid grid--3">
           <article class="card reveal">
-            <div class="card__icon">✦</div>
+            <div class="card__icon" aria-hidden="true">✦</div>
             <h3>Design de site</h3>
             <p>Un design unic, creat pentru brandul și clienții tăi — nu un șablon folosit de mii de alții.</p>
           </article>
           <article class="card reveal">
-            <div class="card__icon">⌘</div>
+            <div class="card__icon" aria-hidden="true">⌘</div>
             <h3>Dezvoltare personalizată</h3>
             <p>Cod scris de mână, care se încarcă rapid, funcționează pe orice dispozitiv și poate crește odată cu afacerea.</p>
           </article>
           <article class="card reveal">
-            <div class="card__icon">↗</div>
+            <div class="card__icon" aria-hidden="true">↗</div>
             <h3>SEO și Google</h3>
             <p>Construit ca Google să te găsească: structură corectă, viteză, profil Google Business și Maps.</p>
           </article>
           <article class="card reveal">
-            <div class="card__icon">◷</div>
+            <div class="card__icon" aria-hidden="true">◷</div>
             <h3>Programări online</h3>
             <p>Clienții își fac singuri programarea direct de pe site, oricând — ideal pentru cabinete, clinici și saloane.</p>
           </article>
           <article class="card reveal">
-            <div class="card__icon">⟳</div>
+            <div class="card__icon" aria-hidden="true">⟳</div>
             <h3>Găzduire și mentenanță</h3>
             <p>Îți păstrăm site-ul online, securizat și actualizat și facem mici modificări oricând ai nevoie.</p>
           </article>
           <article class="card reveal">
-            <div class="card__icon">✎</div>
+            <div class="card__icon" aria-hidden="true">✎</div>
             <h3>Redesign</h3>
             <p>Ai un site vechi sau lent? Îl refacem într-unul modern, pe care să-l arăți cu mândrie.</p>
           </article>
@@ -172,26 +174,26 @@
           <p class="eyebrow">Proiecte selectate</p>
           <h2>Proiecte <em>recente</em>.</h2>
         </div>
-        <div class="filters reveal" role="tablist">
-          <button class="filter is-active" data-filter="all">Toate</button>
-          <button class="filter" data-filter="services">Servicii</button>
+        <div class="filters reveal" role="group" aria-label="Filtrează proiectele">
+          <button type="button" class="filter is-active" data-filter="all" aria-pressed="true">Toate</button>
+          <button type="button" class="filter" data-filter="services" aria-pressed="false">Servicii</button>
         </div>
         <!-- Replace href, title, category and the image with your real sample sites
              (do the same in en/index.html). For a real screenshot use:
              <img src="img/project1.jpg" alt="..."> inside .work__img -->
         <div class="grid grid--2 work">
           <a class="work__item reveal" data-cat="services" href="https://psihologmariayoussef.github.io/psihologmariayouseff/" target="_blank" rel="noopener">
-            <div class="work__img"><img src="img/maria-youssef.jpg" alt="Site-ul psihologului Maria Youssef" loading="lazy"></div>
+            <div class="work__img"><img src="img/maria-youssef.jpg" alt="Site-ul psihologului Maria Youssef" loading="lazy" width="1200" height="750"></div>
             <div class="work__meta"><h3>Maria Youssef</h3><p>Psiholog · Servicii, ateliere și programări</p></div>
           </a>
           <a class="work__item reveal" data-cat="services" href="https://tradagv.github.io/tradagv/" target="_blank" rel="noopener">
-            <div class="work__img"><img src="img/tradagv.jpg?v=2" alt="Site-ul TradAGV, traduceri autorizate" loading="lazy"></div>
+            <div class="work__img"><img src="img/tradagv.jpg?v=2" alt="Site-ul TradAGV, traduceri autorizate" loading="lazy" width="1200" height="750"></div>
             <div class="work__meta"><h3>TradAGV</h3><p>Traduceri autorizate · Site bilingv RO / EN</p></div>
           </a>
-          <a class="work__item reveal" data-cat="services" href="https://example.com" target="_blank" rel="noopener">
+          <div class="work__item reveal" data-cat="services">
             <div class="work__img" style="--c1:#18a058;--c2:#a6f0c6"><span>FixPro</span></div>
             <div class="work__meta"><h3>FixPro Instalații</h3><p>Meserii · Atragere de clienți</p></div>
-          </a>
+          </div>
         </div>
       </div>
     </section>
@@ -301,8 +303,8 @@
         <!-- Contact form sends through Formspree (form ID xaeolyvn). Messages arrive by email. -->
         <form class="form reveal" id="contactForm" action="https://formspree.io/f/xaeolyvn" method="POST">
           <label>Nume<input name="name" required autocomplete="name"></label>
-          <label>Email<input name="email" type="email" required autocomplete="email"></label>
-          <label>Afacere / site actual<input name="business"></label>
+          <label>Email<input name="email" type="email" required autocomplete="email" spellcheck="false"></label>
+          <label>Afacere / site actual<input name="business" autocomplete="organization"></label>
           <label>De ce ai nevoie?
             <select name="package">
               <option>Nu știu încă</option><option>Starter</option><option>Business</option><option>Pro</option><option>Redesign</option>
@@ -318,11 +320,11 @@
 
   <footer class="footer">
     <div class="container footer__inner">
-      <a href="#top" class="logo"><span class="logo__mark">S</span>Stack Studio</a>
+      <a href="#top" class="logo" translate="no"><span class="logo__mark">S</span>Stack Studio</a>
       <p>© <span id="year"></span> Stack Studio. Site-uri personalizate pentru afaceri.</p>
     </div>
   </footer>
 
-  <script src="script.js?v=11"></script>
+  <script src="script.js?v=12"></script>
 </body>
 </html>

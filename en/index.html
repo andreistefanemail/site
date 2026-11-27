@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#134B5F">
   <title>Stack Studio — Websites that bring you customers</title>
   <meta name="description" content="Stack Studio designs and builds fast, modern, custom websites for businesses.">
   <meta property="og:title" content="Stack Studio — Websites that bring you customers">
@@ -15,14 +16,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600&family=Plus+Jakarta+Sans:wght@600;700&family=Syne:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css?v=11">
+  <link rel="stylesheet" href="../styles.css?v=12">
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- ============ NAV ============ -->
   <header class="nav" id="top">
     <div class="container nav__inner">
-      <a href="#top" class="logo"><span class="logo__mark">S</span>Stack Studio</a>
+      <a href="#top" class="logo" translate="no"><span class="logo__mark">S</span>Stack Studio</a>
       <nav class="nav__links" id="navLinks">
         <a href="#services">Services</a>
         <a href="#work">Work</a>
@@ -31,17 +33,17 @@
         <a href="#faq">FAQ</a>
         <a href="#contact" class="btn btn--small">Get a quote</a>
       </nav>
-      <div class="lang" aria-label="Language / Limba">
+      <nav class="lang" aria-label="Language / Limba">
         <a href="../" hreflang="ro" lang="ro">RO</a>
         <a href="./" class="is-active" hreflang="en" lang="en" aria-current="true">EN</a>
-      </div>
+      </nav>
       <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span>
       </button>
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <!-- ============ HERO ============ -->
     <section class="hero hero--build">
       <div class="container sbh">
@@ -130,32 +132,32 @@
         </div>
         <div class="grid grid--3">
           <article class="card reveal">
-            <div class="card__icon">✦</div>
+            <div class="card__icon" aria-hidden="true">✦</div>
             <h3>Website design</h3>
             <p>A unique design made for your brand and your customers — not a template thousands of others use.</p>
           </article>
           <article class="card reveal">
-            <div class="card__icon">⌘</div>
+            <div class="card__icon" aria-hidden="true">⌘</div>
             <h3>Custom development</h3>
             <p>Hand‑written code that loads fast, works on every device and is easy to grow later.</p>
           </article>
           <article class="card reveal">
-            <div class="card__icon">↗</div>
+            <div class="card__icon" aria-hidden="true">↗</div>
             <h3>SEO &amp; Google setup</h3>
             <p>Built so Google can find you: proper structure, speed, Google Business Profile and Maps.</p>
           </article>
           <article class="card reveal">
-            <div class="card__icon">◷</div>
+            <div class="card__icon" aria-hidden="true">◷</div>
             <h3>Online booking</h3>
             <p>Clients book appointments straight from your site, any time — ideal for practices, clinics and salons.</p>
           </article>
           <article class="card reveal">
-            <div class="card__icon">⟳</div>
+            <div class="card__icon" aria-hidden="true">⟳</div>
             <h3>Hosting &amp; care</h3>
             <p>We keep your site online, secure and updated, and make small changes whenever you need them.</p>
           </article>
           <article class="card reveal">
-            <div class="card__icon">✎</div>
+            <div class="card__icon" aria-hidden="true">✎</div>
             <h3>Redesigns</h3>
             <p>Have an old or slow site? We rebuild it into something modern you'll be proud to share.</p>
           </article>
@@ -170,23 +172,23 @@
           <p class="eyebrow">Selected work</p>
           <h2>Recent <em>projects</em>.</h2>
         </div>
-        <div class="filters reveal" role="tablist">
-          <button class="filter is-active" data-filter="all">All</button>
-          <button class="filter" data-filter="services">Services</button>
+        <div class="filters reveal" role="group" aria-label="Filter projects">
+          <button type="button" class="filter is-active" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="filter" data-filter="services" aria-pressed="false">Services</button>
         </div>
         <div class="grid grid--2 work">
           <a class="work__item reveal" data-cat="services" href="https://psihologmariayoussef.github.io/psihologmariayouseff/" target="_blank" rel="noopener">
-            <div class="work__img"><img src="../img/maria-youssef.jpg" alt="Maria Youssef psychologist website" loading="lazy"></div>
+            <div class="work__img"><img src="../img/maria-youssef.jpg" alt="Maria Youssef psychologist website" loading="lazy" width="1200" height="750"></div>
             <div class="work__meta"><h3>Maria Youssef</h3><p>Psychologist · Services, workshops &amp; booking</p></div>
           </a>
           <a class="work__item reveal" data-cat="services" href="https://tradagv.github.io/tradagv/" target="_blank" rel="noopener">
-            <div class="work__img"><img src="../img/tradagv.jpg?v=2" alt="TradAGV authorized translations website" loading="lazy"></div>
+            <div class="work__img"><img src="../img/tradagv.jpg?v=2" alt="TradAGV authorized translations website" loading="lazy" width="1200" height="750"></div>
             <div class="work__meta"><h3>TradAGV</h3><p>Authorized translations · Bilingual RO / EN site</p></div>
           </a>
-          <a class="work__item reveal" data-cat="services" href="https://example.com" target="_blank" rel="noopener">
+          <div class="work__item reveal" data-cat="services">
             <div class="work__img" style="--c1:#18a058;--c2:#a6f0c6"><span>FixPro</span></div>
             <div class="work__meta"><h3>FixPro Instalații</h3><p>Trades · Lead generation</p></div>
-          </a>
+          </div>
         </div>
       </div>
     </section>
@@ -295,8 +297,8 @@
         </div>
         <form class="form reveal" id="contactForm" action="https://formspree.io/f/xaeolyvn" method="POST">
           <label>Name<input name="name" required autocomplete="name"></label>
-          <label>Email<input name="email" type="email" required autocomplete="email"></label>
-          <label>Business / website<input name="business"></label>
+          <label>Email<input name="email" type="email" required autocomplete="email" spellcheck="false"></label>
+          <label>Business / website<input name="business" autocomplete="organization"></label>
           <label>What do you need?
             <select name="package">
               <option>Not sure yet</option><option>Starter</option><option>Business</option><option>Pro</option><option>Redesign</option>
@@ -312,11 +314,11 @@
 
   <footer class="footer">
     <div class="container footer__inner">
-      <a href="#top" class="logo"><span class="logo__mark">S</span>Stack Studio</a>
+      <a href="#top" class="logo" translate="no"><span class="logo__mark">S</span>Stack Studio</a>
       <p>© <span id="year"></span> Stack Studio. Custom websites for businesses.</p>
     </div>
   </footer>
 
-  <script src="../script.js?v=11"></script>
+  <script src="../script.js?v=12"></script>
 </body>
 </html>

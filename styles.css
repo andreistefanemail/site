@@ -175,7 +175,7 @@ p { margin: 0 0 1em; }
 .filters { display: flex; flex-wrap: wrap; gap: .6rem; margin-bottom: 2rem; }
 .filter {
   background: transparent; color: #bbb; border: 1px solid #3a3a3a; border-radius: 999px;
-  padding: .5em 1.1em; font: 500 .95rem var(--font-body); cursor: pointer; transition: all .2s;
+  padding: .5em 1.1em; font: 500 .95rem var(--font-body); cursor: pointer; transition: color .2s, background-color .2s, border-color .2s;
 }
 .filter:hover { color: #fff; border-color: #777; }
 .filter.is-active { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
@@ -359,7 +359,7 @@ p { margin: 0 0 1em; }
 .sbh-nowrap { white-space: nowrap; }
 
 .sbh-tr { transition: color .5s ease, background-color .5s ease, opacity .5s ease, transform .6s cubic-bezier(.2,.8,.2,1),
-  left .9s cubic-bezier(.6,0,.2,1), top .9s cubic-bezier(.6,0,.2,1), border-color .5s ease;
+  border-color .5s ease;
   box-decoration-break: clone; -webkit-box-decoration-break: clone; }
 .sbh-init .sbh-tr { transition: none !important; }
 .sbh-pulse { animation: sbhPulse 1.4s ease-out infinite; }
@@ -603,3 +603,48 @@ body::after { background-image: radial-gradient(circle at 1px 1px, rgba(248, 243
 .section--dark, .section--tint, .plan--featured, .footer {
   --accent: var(--p-saffron); --accent-ink: var(--p-petrol-ink); --highlight: var(--p-saffron-text);
 }
+
+/* ==========================================================
+   Web Interface Guidelines fixes
+   ========================================================== */
+:root { color-scheme: dark; }
+a, button, input, select, textarea, summary, label { touch-action: manipulation; }
+html { -webkit-tap-highlight-color: rgba(242, 182, 84, .25); }
+
+/* Headings never leave a single word alone on the last line */
+h1, h2, h3 { text-wrap: balance; }
+
+/* Skip link: hidden until a keyboard user tabs to it */
+.skip-link {
+  position: fixed; left: 16px; top: 12px; z-index: 200;
+  background: var(--p-saffron); color: var(--p-petrol-ink); font-weight: 700;
+  padding: .7em 1.1em; border-radius: 10px; text-decoration: none;
+  transform: translateY(-160%); transition: transform .2s ease;
+}
+.skip-link:focus-visible { transform: none; }
+
+/* Visible keyboard focus everywhere (mouse clicks don't show it) */
+:focus-visible { outline: 3px solid var(--p-saffron-text); outline-offset: 3px; border-radius: 6px; }
+.card :focus-visible, .plan:not(.plan--featured) :focus-visible, .quote :focus-visible, .strip :focus-visible { outline-color: var(--p-petrol); }
+.form input:focus-visible, .form select:focus-visible, .form textarea:focus-visible {
+  outline: 3px solid var(--p-saffron-text); outline-offset: 1px; border-color: var(--p-saffron);
+}
+.work__item:focus-visible { outline-offset: 6px; border-radius: var(--radius); }
+.btn:focus-visible { outline-offset: 4px; border-radius: 999px; }
+
+/* Hero cursor moves with transform (compositor-friendly) instead of left/top */
+.sbh-cursor { left: 0; top: 0; transition: transform .9s cubic-bezier(.6, 0, .2, 1), opacity .5s ease; }
+
+/* Pause control for the looping animations */
+.sbh-pause {
+  display: inline-flex; align-items: center; gap: 6px; flex: none;
+  font: 600 12.5px var(--font-body); color: var(--p-ivory); cursor: pointer;
+  background: rgba(248, 243, 230, .08); border: 1px solid var(--line); border-radius: 99px;
+  padding: 5px 11px; transition: background-color .2s, border-color .2s;
+}
+.sbh-pause:hover { background: rgba(248, 243, 230, .16); border-color: rgba(248, 243, 230, .4); }
+.sbh-pause svg { width: 11px; height: 11px; }
+.sbh-status { flex-wrap: wrap; }
+
+/* Submit button while sending */
+.form button[aria-busy="true"] { opacity: .75; cursor: progress; }

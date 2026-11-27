@@ -60,26 +60,39 @@ if ("IntersectionObserver" in window) {
 // Portfolio filters
 const filters = document.querySelectorAll(".filter");
 const items = document.querySelectorAll(".work__item");
-filters.forEach((btn) =>
-  btn.addEventListener("click", () => {
-    filters.forEach((b) => b.classList.remove("is-active"));
-    btn.classList.add("is-active");
-    const f = btn.dataset.filter;
-    items.forEach((it) => {
-      const show = f === "all" || it.dataset.cat === f;
-      it.classList.toggle("is-hidden", !show);
-      if (show) it.classList.add("is-visible");
-    });
-  })
-);
+function applyFilter(f, updateUrl) {
+  filters.forEach((b) => {
+    const on = b.dataset.filter === f;
+    b.classList.toggle("is-active", on);
+    b.setAttribute("aria-pressed", on ? "true" : "false");
+  });
+  items.forEach((it) => {
+    const show = f === "all" || it.dataset.cat === f;
+    it.classList.toggle("is-hidden", !show);
+    if (show) it.classList.add("is-visible");
+  });
+  // Keep the chosen filter in the address (?filter=…) so it can be shared
+  if (updateUrl && window.history && history.replaceState) {
+    const url = new URL(location.href);
+    if (f === "all") url.searchParams.delete("filter"); else url.searchParams.set("filter", f);
+    history.replaceState(null, "", url);
+  }
+}
+filters.forEach((btn) => btn.addEventListener("click", () => applyFilter(btn.dataset.filter, true)));
+const startFilter = new URLSearchParams(location.search).get("filter");
+if (startFilter && [...filters].some((b) => b.dataset.filter === startFilter)) applyFilter(startFilter, false);
 
 // Contact form: sends through Formspree without leaving the page
 const form = document.getElementById("contactForm");
 const status = document.getElementById("formStatus");
+const submitBtn = form.querySelector('button[type="submit"]');
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
+  if (submitBtn.disabled) return; // already sending: no double submit
   const data = new FormData(form);
 
+  submitBtn.disabled = true;
+  submitBtn.setAttribute("aria-busy", "true");
   status.textContent = t.sending;
   try {
     const res = await fetch(form.action, {
@@ -92,8 +105,16 @@ form.addEventListener("submit", async (e) => {
     status.textContent = t.success;
   } catch {
     status.textContent = t.error;
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.removeAttribute("aria-busy");
   }
 });
+
+// Shared "pause animations" switch for the hero animation and the background dots.
+// The choice is remembered on this device.
+var ssMotionPaused = false;
+try { ssMotionPaused = localStorage.getItem("ss-motion") === "paused"; } catch (e) {}
 
 // ========== Hero "site builder" animation ==========
 (function () {
@@ -230,8 +251,8 @@ form.addEventListener("submit", async (e) => {
       el.classList.toggle('active', k === stage);
       el.classList.toggle('done', k < stage);
     });
-    set(cursor, 'left', CURSORS[stage][0] + '%');
-    set(cursor, 'top', CURSORS[stage][1] + '%');
+    // Move with transform (smooth, no layout work). The page is 100cqw wide and 62cqw tall.
+    set(cursor, 'transform', 'translate(' + CURSORS[stage][0] + 'cqw, ' + (CURSORS[stage][1] * 0.62).toFixed(2) + 'cqw)');
     set(progress, 'width', Math.min(100, t / OUT * 100) + '%');
   }
 
@@ -252,8 +273,28 @@ form.addEventListener("submit", async (e) => {
     new IntersectionObserver(function (e) { visible = e[0].isIntersecting; last = null; }).observe(root);
   }
 
+  // Pause / play button (the animation loops, so visitors must be able to stop it)
+  var LABELS = { ro: ['Oprește animațiile', 'Pornește animațiile'], en: ['Pause animations', 'Play animations'] }[lang];
+  var PAUSE_ICON = '<svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2" y="1.5" width="2.6" height="9" rx=".6" fill="currentColor"/><rect x="7.4" y="1.5" width="2.6" height="9" rx=".6" fill="currentColor"/></svg>';
+  var PLAY_ICON = '<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 1.5v9l7.5-4.5z" fill="currentColor"/></svg>';
+  var statusBar = root.querySelector('.sbh-status');
+  var pauseBtn = document.createElement('button');
+  pauseBtn.type = 'button';
+  pauseBtn.className = 'sbh-pause';
+  function paintPause() {
+    pauseBtn.innerHTML = (ssMotionPaused ? PLAY_ICON : PAUSE_ICON) + '<span>' + LABELS[ssMotionPaused ? 1 : 0] + '</span>';
+  }
+  pauseBtn.addEventListener('click', function () {
+    ssMotionPaused = !ssMotionPaused;
+    try { localStorage.setItem('ss-motion', ssMotionPaused ? 'paused' : 'playing'); } catch (e) {}
+    last = null;
+    paintPause();
+  });
+  paintPause();
+  if (statusBar) statusBar.appendChild(pauseBtn);
+
   function frame(now) {
-    if (visible && !document.hidden) {
+    if (visible && !document.hidden && !ssMotionPaused) {
       if (last !== null) t += (now - last) / 60 * SPEED;
       last = now;
       if (t >= END) { t = 0; i = (i + 1) % BRANDS.length; loadBrand(); }
@@ -341,7 +382,7 @@ form.addEventListener("submit", async (e) => {
 
   var lastDraw = 0;
   function loop(now) {
-    if (!document.hidden && now - lastDraw >= 1000 / FPS) { draw(now); lastDraw = now; }
+    if (!document.hidden && !ssMotionPaused && now - lastDraw >= 1000 / FPS) { draw(now); lastDraw = now; }
     requestAnimationFrame(loop);
   }
   requestAnimationFrame(loop);
