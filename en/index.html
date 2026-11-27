@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#134B5F">
+  <meta name="theme-color" content="#f6f5f1">
   <title>Stack Studio — Websites that bring you customers</title>
   <meta name="description" content="Stack Studio designs and builds fast, modern, custom websites for businesses.">
   <meta property="og:title" content="Stack Studio — Websites that bring you customers">
@@ -12,20 +12,24 @@
   <link rel="alternate" hreflang="ro" href="../">
   <link rel="alternate" hreflang="en" href="./">
   <link rel="alternate" hreflang="x-default" href="../">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23134b5f'/><text x='16' y='22' font-size='16' font-family='Arial' font-weight='700' fill='white' text-anchor='middle'>S</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 34'><rect width='34' height='34' rx='9' fill='%23111214'/><rect x='8' y='9' width='18' height='4' rx='2' fill='%238ea2ff'/><rect x='8' y='15' width='18' height='4' rx='2' fill='%232448f5'/><rect x='8' y='21' width='18' height='4' rx='2' fill='%23f6f5f1'/></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600&family=Plus+Jakarta+Sans:wght@600;700&family=Syne:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css?v=12">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css?v=13">
+  <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- ============ NAV ============ -->
+  <!-- ============ HEADER ============ -->
   <header class="nav" id="top">
     <div class="container nav__inner">
-      <a href="#top" class="logo" translate="no"><span class="logo__mark">S</span>Stack Studio</a>
-      <nav class="nav__links" id="navLinks">
+      <a href="#top" class="logo" translate="no">
+        <svg class="logo__mark" viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="9" fill="#111214"/><rect x="8" y="9" width="18" height="4" rx="2" fill="#8ea2ff"/><rect x="8" y="15" width="18" height="4" rx="2" fill="#2448f5"/><rect x="8" y="21" width="18" height="4" rx="2" fill="#f6f5f1"/></svg>
+        Stack Studio
+      </a>
+      <nav class="nav__links" id="navLinks" aria-label="Main menu">
         <a href="#services">Services</a>
         <a href="#work">Work</a>
         <a href="#process">Process</a>
@@ -37,7 +41,7 @@
         <a href="../" hreflang="ro" lang="ro">RO</a>
         <a href="./" class="is-active" hreflang="en" lang="en" aria-current="true">EN</a>
       </nav>
-      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <button class="nav__toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
         <span></span><span></span>
       </button>
     </div>
@@ -45,81 +49,34 @@
 
   <main id="main">
     <!-- ============ HERO ============ -->
-    <section class="hero hero--build">
-      <div class="container sbh">
-        <div class="sbh-left">
+    <section class="hero">
+      <div class="container hero__grid">
+        <div>
           <p class="eyebrow reveal">Web design &amp; development studio</p>
           <h1 class="hero__title reveal">Websites that <span class="hl">bring you</span> customers.</h1>
           <p class="hero__lead reveal">We design and code custom websites for businesses — fast, mobile‑first and built to turn visitors into calls, bookings and sales. No templates. No monthly lock‑in.</p>
-          <ol class="sbh-steps reveal">
-            <li class="sbh-step sbh-tr"><span class="n sbh-tr">01</span><span class="l">Structure</span><span class="d sbh-tr">Layout &amp; pages</span></li>
-            <li class="sbh-step sbh-tr"><span class="n sbh-tr">02</span><span class="l">Content</span><span class="d sbh-tr">Your words</span></li>
-            <li class="sbh-step sbh-tr"><span class="n sbh-tr">03</span><span class="l">Brand</span><span class="d sbh-tr">Type, color, imagery</span></li>
-            <li class="sbh-step sbh-tr"><span class="n sbh-tr">04</span><span class="l">Launch</span><span class="d sbh-tr">Live on your domain</span></li>
-          </ol>
           <div class="hero__cta reveal">
             <a href="#contact" class="btn">Start your project</a>
-            <a href="#work" class="btn btn--ghost">See our work →</a>
+            <a href="#work" class="btn btn--ghost">See our work <span class="btn__arrow" aria-hidden="true">→</span></a>
           </div>
+          <ul class="facts reveal">
+            <li><strong>2–3 weeks</strong><span>average delivery</span></li>
+            <li><strong>100%</strong><span>hand-written code</span></li>
+            <li><strong>90+</strong><span>Google speed score</span></li>
+          </ul>
         </div>
-        <div class="sbh-right reveal">
-          <div class="sbh-browser" aria-hidden="true">
-            <div class="sbh-chrome">
-              <div class="sbh-dots"><i></i><i></i><i></i></div>
-              <div class="sbh-url">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#6b7d84" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
-                <span data-url></span><span class="sbh-caret" data-caret></span>
-                <span class="sbh-live sbh-tr" data-live>● Live</span>
-              </div>
-            </div>
-            <div class="sbh-page sbh-tr" data-page>
-              <div class="sbh-nav">
-                <span class="sbh-logo sbh-tr" data-k="name" data-w="24" data-x="44" data-r="ink" data-head></span>
-                <span class="sbh-link sbh-tr" data-k="nav.0" data-w="26" data-x="46" data-r="soft"></span>
-                <span class="sbh-link sbh-tr" data-k="nav.1" data-w="27" data-x="47" data-r="soft"></span>
-                <span class="sbh-link sbh-tr" data-k="nav.2" data-w="28" data-x="48" data-r="soft"></span>
-                <span class="sbh-pill sbh-navcta sbh-tr" data-k="navCta" data-w="26" data-x="46" data-btn></span>
-              </div>
-              <div class="sbh-hero">
-                <div class="sbh-copy">
-                  <div class="sbh-mh1"><span class="sbh-tr" data-k="h1" data-w="28" data-x="44" data-r="ink" data-head></span></div>
-                  <div class="sbh-sub"><span class="sbh-tr" data-k="sub" data-w="29" data-x="46" data-r="soft"></span></div>
-                  <span class="sbh-pill sbh-cta sbh-tr" data-k="cta" data-w="30" data-x="48" data-btn data-cta></span>
-                </div>
-                <div class="sbh-panel sbh-tr" data-panel>
-                  <span class="sbh-shape sbh-tr"></span><span class="sbh-shape sbh-tr"></span><span class="sbh-shape sbh-tr"></span>
-                </div>
-              </div>
-              <div class="sbh-cards">
-                <div class="sbh-card sbh-tr" data-card="34"><span class="sbh-icon sbh-tr"></span>
-                  <span class="sbh-ct"><span class="sbh-tr" data-k="cards.0.t" data-w="34" data-x="54" data-r="ink" data-head></span></span>
-                  <span class="sbh-cd"><span class="sbh-tr" data-k="cards.0.d" data-w="34" data-x="55" data-r="soft"></span></span></div>
-                <div class="sbh-card sbh-tr" data-card="36"><span class="sbh-icon sbh-tr"></span>
-                  <span class="sbh-ct"><span class="sbh-tr" data-k="cards.1.t" data-w="36" data-x="56" data-r="ink" data-head></span></span>
-                  <span class="sbh-cd"><span class="sbh-tr" data-k="cards.1.d" data-w="36" data-x="57" data-r="soft"></span></span></div>
-                <div class="sbh-card sbh-tr" data-card="38"><span class="sbh-icon sbh-tr"></span>
-                  <span class="sbh-ct"><span class="sbh-tr" data-k="cards.2.t" data-w="38" data-x="58" data-r="ink" data-head></span></span>
-                  <span class="sbh-cd"><span class="sbh-tr" data-k="cards.2.d" data-w="38" data-x="59" data-r="soft"></span></span></div>
-              </div>
-              <svg class="sbh-cursor sbh-tr" data-cursor viewBox="0 0 24 24"><path d="M4 2l16 10.5-7 1.3 4 7.7-3 1.5-4-7.7L4 20z" fill="#0B2F3B" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></svg>
-            </div>
-          </div>
-          <div class="sbh-status">
-            <span class="sbh-nowrap">Now building · <b data-kind></b></span>
-            <span class="sbh-bar"><i class="sbh-tr" data-progress></i></span>
-            <span class="sbh-nowrap">Example <span data-num>1</span> of 3</span>
-          </div>
+        <div class="stack reveal">
+          <figure class="window window--back">
+            <div class="window__bar" aria-hidden="true"><i></i><i></i><i></i></div>
+            <img src="../img/tradagv.jpg?v=2" alt="TradAGV authorized translations website" width="1200" height="750">
+            <figcaption translate="no">TradAGV</figcaption>
+          </figure>
+          <figure class="window window--front">
+            <div class="window__bar" aria-hidden="true"><i></i><i></i><i></i></div>
+            <img src="../img/maria-youssef.jpg" alt="Maria Youssef psychologist website" width="1200" height="750" fetchpriority="high">
+            <figcaption translate="no">Maria Youssef</figcaption>
+          </figure>
         </div>
-      </div>
-    </section>
-    <!-- ============ BAND ============ -->
-    <section class="strip">
-      <div class="container">
-        <ul class="strip__list">
-          <li class="strip__item"><svg viewBox="0 0 24 24" fill="none" stroke="#F3ECE9" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><strong>2–3 weeks</strong><span>average delivery</span></div></li>
-          <li class="strip__item"><svg viewBox="0 0 24 24" fill="none" stroke="#F3ECE9" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M13.5 4l-3 16"/></svg><div><strong>100%</strong><span>hand-written code</span></div></li>
-          <li class="strip__item"><svg viewBox="0 0 24 24" fill="none" stroke="#F3ECE9" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 16a8 8 0 1 1 16 0"/><path d="M12 16l4-5"/><circle cx="12" cy="16" r="1.2"/></svg><div><strong>90+</strong><span>Google speed score</span></div></li>
-        </ul>
       </div>
     </section>
 
@@ -130,64 +87,50 @@
           <p class="eyebrow">What we do</p>
           <h2>Everything your business needs <em>online</em>.</h2>
         </div>
-        <div class="grid grid--3">
-          <article class="card reveal">
-            <div class="card__icon" aria-hidden="true">✦</div>
-            <h3>Website design</h3>
-            <p>A unique design made for your brand and your customers — not a template thousands of others use.</p>
-          </article>
-          <article class="card reveal">
-            <div class="card__icon" aria-hidden="true">⌘</div>
-            <h3>Custom development</h3>
-            <p>Hand‑written code that loads fast, works on every device and is easy to grow later.</p>
-          </article>
-          <article class="card reveal">
-            <div class="card__icon" aria-hidden="true">↗</div>
-            <h3>SEO &amp; Google setup</h3>
-            <p>Built so Google can find you: proper structure, speed, Google Business Profile and Maps.</p>
-          </article>
-          <article class="card reveal">
-            <div class="card__icon" aria-hidden="true">◷</div>
-            <h3>Online booking</h3>
-            <p>Clients book appointments straight from your site, any time — ideal for practices, clinics and salons.</p>
-          </article>
-          <article class="card reveal">
-            <div class="card__icon" aria-hidden="true">⟳</div>
-            <h3>Hosting &amp; care</h3>
-            <p>We keep your site online, secure and updated, and make small changes whenever you need them.</p>
-          </article>
-          <article class="card reveal">
-            <div class="card__icon" aria-hidden="true">✎</div>
-            <h3>Redesigns</h3>
-            <p>Have an old or slow site? We rebuild it into something modern you'll be proud to share.</p>
-          </article>
-        </div>
+        <ul class="services">
+          <li class="service reveal"><span class="service__n">01</span><h3>Website design</h3><p>A unique design made for your brand and your customers — not a template thousands of others use.</p></li>
+          <li class="service reveal"><span class="service__n">02</span><h3>Custom development</h3><p>Hand‑written code that loads fast, works on every device and is easy to grow later.</p></li>
+          <li class="service reveal"><span class="service__n">03</span><h3>SEO &amp; Google setup</h3><p>Built so Google can find you: proper structure, speed, Google Business Profile and Maps.</p></li>
+          <li class="service reveal"><span class="service__n">04</span><h3>Online booking</h3><p>Clients book appointments straight from your site, any time — ideal for practices, clinics and salons.</p></li>
+          <li class="service reveal"><span class="service__n">05</span><h3>Hosting &amp; care</h3><p>We keep your site online, secure and updated, and make small changes whenever you need them.</p></li>
+          <li class="service reveal"><span class="service__n">06</span><h3>Redesigns</h3><p>Have an old or slow site? We rebuild it into something modern you'll be proud to share.</p></li>
+        </ul>
       </div>
     </section>
 
     <!-- ============ WORK ============ -->
-    <section class="section section--dark" id="work">
+    <section class="section section--night" id="work">
       <div class="container">
-        <div class="section__head reveal">
-          <p class="eyebrow">Selected work</p>
-          <h2>Recent <em>projects</em>.</h2>
+        <div class="work__head">
+          <div class="section__head reveal">
+            <p class="eyebrow">Selected work</p>
+            <h2>Recent <em>projects</em>.</h2>
+          </div>
+          <div class="filters reveal" role="group" aria-label="Filter projects">
+            <button type="button" class="filter is-active" data-filter="all" aria-pressed="true">All</button>
+            <button type="button" class="filter" data-filter="services" aria-pressed="false">Services</button>
+          </div>
         </div>
-        <div class="filters reveal" role="group" aria-label="Filter projects">
-          <button type="button" class="filter is-active" data-filter="all" aria-pressed="true">All</button>
-          <button type="button" class="filter" data-filter="services" aria-pressed="false">Services</button>
-        </div>
-        <div class="grid grid--2 work">
+        <div class="work">
           <a class="work__item reveal" data-cat="services" href="https://psihologmariayoussef.github.io/psihologmariayouseff/" target="_blank" rel="noopener">
             <div class="work__img"><img src="../img/maria-youssef.jpg" alt="Maria Youssef psychologist website" loading="lazy" width="1200" height="750"></div>
-            <div class="work__meta"><h3>Maria Youssef</h3><p>Psychologist · Services, workshops &amp; booking</p></div>
+            <div class="work__meta">
+              <div><h3 translate="no">Maria Youssef</h3><p>Psychologist · Services, workshops &amp; booking</p></div>
+              <span class="work__arrow" aria-hidden="true"><svg viewBox="0 0 16 16" width="16" height="16"><path d="M4 12L12 4M6 4h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
           </a>
           <a class="work__item reveal" data-cat="services" href="https://tradagv.github.io/tradagv/" target="_blank" rel="noopener">
             <div class="work__img"><img src="../img/tradagv.jpg?v=2" alt="TradAGV authorized translations website" loading="lazy" width="1200" height="750"></div>
-            <div class="work__meta"><h3>TradAGV</h3><p>Authorized translations · Bilingual RO / EN site</p></div>
+            <div class="work__meta">
+              <div><h3 translate="no">TradAGV</h3><p>Authorized translations · Bilingual RO / EN site</p></div>
+              <span class="work__arrow" aria-hidden="true"><svg viewBox="0 0 16 16" width="16" height="16"><path d="M4 12L12 4M6 4h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
           </a>
           <div class="work__item reveal" data-cat="services">
-            <div class="work__img" style="--c1:#18a058;--c2:#a6f0c6"><span>FixPro</span></div>
-            <div class="work__meta"><h3>FixPro Instalații</h3><p>Trades · Lead generation</p></div>
+            <div class="work__img work__img--placeholder"><span translate="no">FixPro</span></div>
+            <div class="work__meta">
+              <div><h3 translate="no">FixPro Instalații</h3><p>Trades · Lead generation</p></div>
+            </div>
           </div>
         </div>
       </div>
@@ -210,13 +153,13 @@
     </section>
 
     <!-- ============ PRICING ============ -->
-    <section class="section section--tint" id="pricing">
+    <section class="section section--alt" id="pricing">
       <div class="container">
         <div class="section__head reveal">
           <p class="eyebrow">Pricing</p>
           <h2>Clear packages. No <em>surprises</em>.</h2>
         </div>
-        <div class="grid grid--3 pricing">
+        <div class="pricing">
           <div class="plan reveal">
             <h3>Starter</h3>
             <p class="plan__price">€50</p>
@@ -255,40 +198,40 @@
 
     <!-- ============ TESTIMONIALS ============ -->
     <section class="section" id="testimonials">
-      <div class="container">
-        <div class="grid grid--2">
-          <blockquote class="quote reveal">
-            <p>“Placeholder — add a real client quote here. Something like: the new site brought us more calls in the first month than the old one did all year.”</p>
-            <footer><strong>Client Name</strong> · Business Name</footer>
-          </blockquote>
-          <blockquote class="quote reveal">
-            <p>“Placeholder — second client quote. Mention speed, communication or results.”</p>
-            <footer><strong>Client Name</strong> · Business Name</footer>
-          </blockquote>
-        </div>
+      <div class="container quotes">
+        <blockquote class="quote reveal">
+          <svg class="quote__mark" viewBox="0 0 36 36" aria-hidden="true"><path d="M7 27c0-7 3.5-12.5 10-15.5l1.2 2.2C14.8 15.6 13 18 12.6 21H17v6H7zm14 0c0-7 3.5-12.5 10-15.5l1.2 2.2C28.8 15.6 27 18 26.6 21H31v6H21z" fill="currentColor"/></svg>
+          <p>“Placeholder — add a real client quote here. Something like: the new site brought us more calls in the first month than the old one did all year.”</p>
+          <footer><strong>Client Name</strong> · Business Name</footer>
+        </blockquote>
+        <blockquote class="quote reveal">
+          <svg class="quote__mark" viewBox="0 0 36 36" aria-hidden="true"><path d="M7 27c0-7 3.5-12.5 10-15.5l1.2 2.2C14.8 15.6 13 18 12.6 21H17v6H7zm14 0c0-7 3.5-12.5 10-15.5l1.2 2.2C28.8 15.6 27 18 26.6 21H31v6H21z" fill="currentColor"/></svg>
+          <p>“Placeholder — second client quote. Mention speed, communication or results.”</p>
+          <footer><strong>Client Name</strong> · Business Name</footer>
+        </blockquote>
       </div>
     </section>
 
     <!-- ============ FAQ ============ -->
-    <section class="section section--tint" id="faq">
-      <div class="container container--narrow">
+    <section class="section section--alt" id="faq">
+      <div class="container faq-layout">
         <div class="section__head reveal">
           <p class="eyebrow">FAQ</p>
           <h2>Questions we get a <em>lot</em>.</h2>
         </div>
-        <div class="faq">
-          <details class="reveal"><summary>How long does a website take?</summary><p>Most sites are ready in 2–3 weeks, depending on size and how quickly we receive your content.</p></details>
-          <details class="reveal"><summary>Do I own my website?</summary><p>Yes. Once paid, the site and its code are yours. No lock‑in.</p></details>
-          <details class="reveal"><summary>Do you use templates?</summary><p>No. Every site is designed and coded from scratch for your business, so it's faster and unique.</p></details>
-          <details class="reveal"><summary>What do I need to provide?</summary><p>Your logo (if you have one), texts about your business, and photos. If you don't have them, we can help.</p></details>
-          <details class="reveal"><summary>How do I pay?</summary><p>50% when we start, 50% at launch. Bank transfer or card.</p></details>
-          <details class="reveal"><summary>What if I don't pay for monthly care?</summary><p>Your site stays online. You only pay in the months you need changes.</p></details>
+        <div class="faq reveal">
+          <details><summary>How long does a website take?</summary><p>Most sites are ready in 2–3 weeks, depending on size and how quickly we receive your content.</p></details>
+          <details><summary>Do I own my website?</summary><p>Yes. Once paid, the site and its code are yours. No lock‑in.</p></details>
+          <details><summary>Do you use templates?</summary><p>No. Every site is designed and coded from scratch for your business, so it's faster and unique.</p></details>
+          <details><summary>What do I need to provide?</summary><p>Your logo (if you have one), texts about your business, and photos. If you don't have them, we can help.</p></details>
+          <details><summary>How do I pay?</summary><p>50% when we start, 50% at launch. Bank transfer or card.</p></details>
+          <details><summary>What if I don't pay for monthly care?</summary><p>Your site stays online. You only pay in the months you need changes.</p></details>
         </div>
       </div>
     </section>
 
     <!-- ============ CONTACT ============ -->
-    <section class="section section--dark" id="contact">
+    <section class="section section--night" id="contact">
       <div class="container contact">
         <div class="contact__intro reveal">
           <p class="eyebrow">Contact</p>
@@ -314,11 +257,14 @@
 
   <footer class="footer">
     <div class="container footer__inner">
-      <a href="#top" class="logo" translate="no"><span class="logo__mark">S</span>Stack Studio</a>
-      <p>© <span id="year"></span> Stack Studio. Custom websites for businesses.</p>
+      <a href="#top" class="logo" translate="no">
+        <svg class="logo__mark" viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="9" fill="#1c1e23"/><rect x="8" y="9" width="18" height="4" rx="2" fill="#8ea2ff"/><rect x="8" y="15" width="18" height="4" rx="2" fill="#2448f5"/><rect x="8" y="21" width="18" height="4" rx="2" fill="#f6f5f1"/></svg>
+        Stack Studio
+      </a>
+      <p>© <span id="year">2026</span> Stack Studio. Custom websites for businesses.</p>
     </div>
   </footer>
 
-  <script src="../script.js?v=12"></script>
+  <script src="../script.js?v=13"></script>
 </body>
 </html>

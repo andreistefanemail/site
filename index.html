@@ -3,31 +3,33 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#134B5F">
+  <meta name="theme-color" content="#f6f5f1">
   <title>Stack Studio — Site-uri care îți aduc clienți</title>
   <meta name="description" content="Stack Studio proiectează și programează site-uri personalizate, rapide și moderne pentru afaceri.">
   <meta property="og:title" content="Stack Studio — Site-uri care îți aduc clienți">
   <meta property="og:description" content="Site-uri personalizate, rapide și moderne pentru afaceri.">
   <meta property="og:locale" content="ro_RO">
-  <!-- Language versions (helps Google show the right one). After you get a domain,
-       you can make these absolute, e.g. https://yourstudio.ro/en/ -->
   <link rel="alternate" hreflang="ro" href="./">
   <link rel="alternate" hreflang="en" href="en/">
   <link rel="alternate" hreflang="x-default" href="./">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23134b5f'/><text x='16' y='22' font-size='16' font-family='Arial' font-weight='700' fill='white' text-anchor='middle'>S</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 34'><rect width='34' height='34' rx='9' fill='%23111214'/><rect x='8' y='9' width='18' height='4' rx='2' fill='%238ea2ff'/><rect x='8' y='15' width='18' height='4' rx='2' fill='%232448f5'/><rect x='8' y='21' width='18' height='4' rx='2' fill='%23f6f5f1'/></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600&family=Plus+Jakarta+Sans:wght@600;700&family=Syne:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=12">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=13">
+  <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
   <a class="skip-link" href="#main">Sari la conținut</a>
 
-  <!-- ============ NAV ============ -->
+  <!-- ============ HEADER ============ -->
   <header class="nav" id="top">
     <div class="container nav__inner">
-      <a href="#top" class="logo" translate="no"><span class="logo__mark">S</span>Stack Studio</a>
-      <nav class="nav__links" id="navLinks">
+      <a href="#top" class="logo" translate="no">
+        <svg class="logo__mark" viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="9" fill="#111214"/><rect x="8" y="9" width="18" height="4" rx="2" fill="#8ea2ff"/><rect x="8" y="15" width="18" height="4" rx="2" fill="#2448f5"/><rect x="8" y="21" width="18" height="4" rx="2" fill="#f6f5f1"/></svg>
+        Stack Studio
+      </a>
+      <nav class="nav__links" id="navLinks" aria-label="Meniu principal">
         <a href="#services">Servicii</a>
         <a href="#work">Proiecte</a>
         <a href="#process">Proces</a>
@@ -39,7 +41,7 @@
         <a href="./" class="is-active" hreflang="ro" lang="ro" aria-current="true">RO</a>
         <a href="en/" hreflang="en" lang="en">EN</a>
       </nav>
-      <button class="nav__toggle" id="navToggle" aria-label="Deschide meniul" aria-expanded="false">
+      <button class="nav__toggle" id="navToggle" type="button" aria-label="Deschide meniul" aria-expanded="false" aria-controls="navLinks">
         <span></span><span></span>
       </button>
     </div>
@@ -47,81 +49,34 @@
 
   <main id="main">
     <!-- ============ HERO ============ -->
-    <section class="hero hero--build">
-      <div class="container sbh">
-        <div class="sbh-left">
+    <section class="hero">
+      <div class="container hero__grid">
+        <div>
           <p class="eyebrow reveal">Studio de web design și dezvoltare</p>
           <h1 class="hero__title reveal">Site-uri care îți <span class="hl">aduc clienți</span>.</h1>
           <p class="hero__lead reveal">Proiectăm și programăm site-uri personalizate pentru afaceri — rapide, gândite pentru mobil și construite să transforme vizitatorii în apeluri, programări și vânzări. Fără șabloane. Fără abonamente obligatorii.</p>
-          <ol class="sbh-steps reveal">
-            <li class="sbh-step sbh-tr"><span class="n sbh-tr">01</span><span class="l">Structură</span><span class="d sbh-tr">Layout și pagini</span></li>
-            <li class="sbh-step sbh-tr"><span class="n sbh-tr">02</span><span class="l">Conținut</span><span class="d sbh-tr">Textele tale</span></li>
-            <li class="sbh-step sbh-tr"><span class="n sbh-tr">03</span><span class="l">Brand</span><span class="d sbh-tr">Fonturi, culori, imagini</span></li>
-            <li class="sbh-step sbh-tr"><span class="n sbh-tr">04</span><span class="l">Lansare</span><span class="d sbh-tr">Live pe domeniul tău</span></li>
-          </ol>
           <div class="hero__cta reveal">
             <a href="#contact" class="btn">Începe proiectul</a>
-            <a href="#work" class="btn btn--ghost">Vezi proiectele →</a>
+            <a href="#work" class="btn btn--ghost">Vezi proiectele <span class="btn__arrow" aria-hidden="true">→</span></a>
           </div>
+          <ul class="facts reveal">
+            <li><strong>2–3 săptămâni</strong><span>timp mediu de livrare</span></li>
+            <li><strong>100%</strong><span>cod scris de mână</span></li>
+            <li><strong>90+</strong><span>scor de viteză Google</span></li>
+          </ul>
         </div>
-        <div class="sbh-right reveal">
-          <div class="sbh-browser" aria-hidden="true">
-            <div class="sbh-chrome">
-              <div class="sbh-dots"><i></i><i></i><i></i></div>
-              <div class="sbh-url">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#6b7d84" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
-                <span data-url></span><span class="sbh-caret" data-caret></span>
-                <span class="sbh-live sbh-tr" data-live>● Live</span>
-              </div>
-            </div>
-            <div class="sbh-page sbh-tr" data-page>
-              <div class="sbh-nav">
-                <span class="sbh-logo sbh-tr" data-k="name" data-w="24" data-x="44" data-r="ink" data-head></span>
-                <span class="sbh-link sbh-tr" data-k="nav.0" data-w="26" data-x="46" data-r="soft"></span>
-                <span class="sbh-link sbh-tr" data-k="nav.1" data-w="27" data-x="47" data-r="soft"></span>
-                <span class="sbh-link sbh-tr" data-k="nav.2" data-w="28" data-x="48" data-r="soft"></span>
-                <span class="sbh-pill sbh-navcta sbh-tr" data-k="navCta" data-w="26" data-x="46" data-btn></span>
-              </div>
-              <div class="sbh-hero">
-                <div class="sbh-copy">
-                  <div class="sbh-mh1"><span class="sbh-tr" data-k="h1" data-w="28" data-x="44" data-r="ink" data-head></span></div>
-                  <div class="sbh-sub"><span class="sbh-tr" data-k="sub" data-w="29" data-x="46" data-r="soft"></span></div>
-                  <span class="sbh-pill sbh-cta sbh-tr" data-k="cta" data-w="30" data-x="48" data-btn data-cta></span>
-                </div>
-                <div class="sbh-panel sbh-tr" data-panel>
-                  <span class="sbh-shape sbh-tr"></span><span class="sbh-shape sbh-tr"></span><span class="sbh-shape sbh-tr"></span>
-                </div>
-              </div>
-              <div class="sbh-cards">
-                <div class="sbh-card sbh-tr" data-card="34"><span class="sbh-icon sbh-tr"></span>
-                  <span class="sbh-ct"><span class="sbh-tr" data-k="cards.0.t" data-w="34" data-x="54" data-r="ink" data-head></span></span>
-                  <span class="sbh-cd"><span class="sbh-tr" data-k="cards.0.d" data-w="34" data-x="55" data-r="soft"></span></span></div>
-                <div class="sbh-card sbh-tr" data-card="36"><span class="sbh-icon sbh-tr"></span>
-                  <span class="sbh-ct"><span class="sbh-tr" data-k="cards.1.t" data-w="36" data-x="56" data-r="ink" data-head></span></span>
-                  <span class="sbh-cd"><span class="sbh-tr" data-k="cards.1.d" data-w="36" data-x="57" data-r="soft"></span></span></div>
-                <div class="sbh-card sbh-tr" data-card="38"><span class="sbh-icon sbh-tr"></span>
-                  <span class="sbh-ct"><span class="sbh-tr" data-k="cards.2.t" data-w="38" data-x="58" data-r="ink" data-head></span></span>
-                  <span class="sbh-cd"><span class="sbh-tr" data-k="cards.2.d" data-w="38" data-x="59" data-r="soft"></span></span></div>
-              </div>
-              <svg class="sbh-cursor sbh-tr" data-cursor viewBox="0 0 24 24"><path d="M4 2l16 10.5-7 1.3 4 7.7-3 1.5-4-7.7L4 20z" fill="#0B2F3B" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></svg>
-            </div>
-          </div>
-          <div class="sbh-status">
-            <span class="sbh-nowrap">Acum construim · <b data-kind></b></span>
-            <span class="sbh-bar"><i class="sbh-tr" data-progress></i></span>
-            <span class="sbh-nowrap">Exemplul <span data-num>1</span> din 3</span>
-          </div>
+        <div class="stack reveal">
+          <figure class="window window--back">
+            <div class="window__bar" aria-hidden="true"><i></i><i></i><i></i></div>
+            <img src="img/tradagv.jpg?v=2" alt="Site-ul TradAGV, traduceri autorizate" width="1200" height="750">
+            <figcaption translate="no">TradAGV</figcaption>
+          </figure>
+          <figure class="window window--front">
+            <div class="window__bar" aria-hidden="true"><i></i><i></i><i></i></div>
+            <img src="img/maria-youssef.jpg" alt="Site-ul psihologului Maria Youssef" width="1200" height="750" fetchpriority="high">
+            <figcaption translate="no">Maria Youssef</figcaption>
+          </figure>
         </div>
-      </div>
-    </section>
-    <!-- ============ BAND ============ -->
-    <section class="strip">
-      <div class="container">
-        <ul class="strip__list">
-          <li class="strip__item"><svg viewBox="0 0 24 24" fill="none" stroke="#F3ECE9" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><strong>2–3 săptămâni</strong><span>timp mediu de livrare</span></div></li>
-          <li class="strip__item"><svg viewBox="0 0 24 24" fill="none" stroke="#F3ECE9" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M13.5 4l-3 16"/></svg><div><strong>100%</strong><span>cod scris de mână</span></div></li>
-          <li class="strip__item"><svg viewBox="0 0 24 24" fill="none" stroke="#F3ECE9" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 16a8 8 0 1 1 16 0"/><path d="M12 16l4-5"/><circle cx="12" cy="16" r="1.2"/></svg><div><strong>90+</strong><span>scor de viteză Google</span></div></li>
-        </ul>
       </div>
     </section>
 
@@ -132,67 +87,50 @@
           <p class="eyebrow">Ce facem</p>
           <h2>Tot ce are nevoie afacerea ta <em>online</em>.</h2>
         </div>
-        <div class="grid grid--3">
-          <article class="card reveal">
-            <div class="card__icon" aria-hidden="true">✦</div>
-            <h3>Design de site</h3>
-            <p>Un design unic, creat pentru brandul și clienții tăi — nu un șablon folosit de mii de alții.</p>
-          </article>
-          <article class="card reveal">
-            <div class="card__icon" aria-hidden="true">⌘</div>
-            <h3>Dezvoltare personalizată</h3>
-            <p>Cod scris de mână, care se încarcă rapid, funcționează pe orice dispozitiv și poate crește odată cu afacerea.</p>
-          </article>
-          <article class="card reveal">
-            <div class="card__icon" aria-hidden="true">↗</div>
-            <h3>SEO și Google</h3>
-            <p>Construit ca Google să te găsească: structură corectă, viteză, profil Google Business și Maps.</p>
-          </article>
-          <article class="card reveal">
-            <div class="card__icon" aria-hidden="true">◷</div>
-            <h3>Programări online</h3>
-            <p>Clienții își fac singuri programarea direct de pe site, oricând — ideal pentru cabinete, clinici și saloane.</p>
-          </article>
-          <article class="card reveal">
-            <div class="card__icon" aria-hidden="true">⟳</div>
-            <h3>Găzduire și mentenanță</h3>
-            <p>Îți păstrăm site-ul online, securizat și actualizat și facem mici modificări oricând ai nevoie.</p>
-          </article>
-          <article class="card reveal">
-            <div class="card__icon" aria-hidden="true">✎</div>
-            <h3>Redesign</h3>
-            <p>Ai un site vechi sau lent? Îl refacem într-unul modern, pe care să-l arăți cu mândrie.</p>
-          </article>
-        </div>
+        <ul class="services">
+          <li class="service reveal"><span class="service__n">01</span><h3>Design de site</h3><p>Un design unic, creat pentru brandul și clienții tăi — nu un șablon folosit de mii de alții.</p></li>
+          <li class="service reveal"><span class="service__n">02</span><h3>Dezvoltare personalizată</h3><p>Cod scris de mână, care se încarcă rapid, funcționează pe orice dispozitiv și poate crește odată cu afacerea.</p></li>
+          <li class="service reveal"><span class="service__n">03</span><h3>SEO și Google</h3><p>Construit ca Google să te găsească: structură corectă, viteză, profil Google Business și Maps.</p></li>
+          <li class="service reveal"><span class="service__n">04</span><h3>Programări online</h3><p>Clienții își fac singuri programarea direct de pe site, oricând — ideal pentru cabinete, clinici și saloane.</p></li>
+          <li class="service reveal"><span class="service__n">05</span><h3>Găzduire și mentenanță</h3><p>Îți păstrăm site-ul online, securizat și actualizat și facem mici modificări oricând ai nevoie.</p></li>
+          <li class="service reveal"><span class="service__n">06</span><h3>Redesign</h3><p>Ai un site vechi sau lent? Îl refacem într-unul modern, pe care să-l arăți cu mândrie.</p></li>
+        </ul>
       </div>
     </section>
 
     <!-- ============ WORK ============ -->
-    <section class="section section--dark" id="work">
+    <section class="section section--night" id="work">
       <div class="container">
-        <div class="section__head reveal">
-          <p class="eyebrow">Proiecte selectate</p>
-          <h2>Proiecte <em>recente</em>.</h2>
+        <div class="work__head">
+          <div class="section__head reveal">
+            <p class="eyebrow">Proiecte selectate</p>
+            <h2>Proiecte <em>recente</em>.</h2>
+          </div>
+          <div class="filters reveal" role="group" aria-label="Filtrează proiectele">
+            <button type="button" class="filter is-active" data-filter="all" aria-pressed="true">Toate</button>
+            <button type="button" class="filter" data-filter="services" aria-pressed="false">Servicii</button>
+          </div>
         </div>
-        <div class="filters reveal" role="group" aria-label="Filtrează proiectele">
-          <button type="button" class="filter is-active" data-filter="all" aria-pressed="true">Toate</button>
-          <button type="button" class="filter" data-filter="services" aria-pressed="false">Servicii</button>
-        </div>
-        <!-- Replace href, title, category and the image with your real sample sites
-             (do the same in en/index.html). For a real screenshot use:
-             <img src="img/project1.jpg" alt="..."> inside .work__img -->
-        <div class="grid grid--2 work">
+        <div class="work">
           <a class="work__item reveal" data-cat="services" href="https://psihologmariayoussef.github.io/psihologmariayouseff/" target="_blank" rel="noopener">
             <div class="work__img"><img src="img/maria-youssef.jpg" alt="Site-ul psihologului Maria Youssef" loading="lazy" width="1200" height="750"></div>
-            <div class="work__meta"><h3>Maria Youssef</h3><p>Psiholog · Servicii, ateliere și programări</p></div>
+            <div class="work__meta">
+              <div><h3 translate="no">Maria Youssef</h3><p>Psiholog · Servicii, ateliere și programări</p></div>
+              <span class="work__arrow" aria-hidden="true"><svg viewBox="0 0 16 16" width="16" height="16"><path d="M4 12L12 4M6 4h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
           </a>
           <a class="work__item reveal" data-cat="services" href="https://tradagv.github.io/tradagv/" target="_blank" rel="noopener">
             <div class="work__img"><img src="img/tradagv.jpg?v=2" alt="Site-ul TradAGV, traduceri autorizate" loading="lazy" width="1200" height="750"></div>
-            <div class="work__meta"><h3>TradAGV</h3><p>Traduceri autorizate · Site bilingv RO / EN</p></div>
+            <div class="work__meta">
+              <div><h3 translate="no">TradAGV</h3><p>Traduceri autorizate · Site bilingv RO / EN</p></div>
+              <span class="work__arrow" aria-hidden="true"><svg viewBox="0 0 16 16" width="16" height="16"><path d="M4 12L12 4M6 4h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
           </a>
           <div class="work__item reveal" data-cat="services">
-            <div class="work__img" style="--c1:#18a058;--c2:#a6f0c6"><span>FixPro</span></div>
-            <div class="work__meta"><h3>FixPro Instalații</h3><p>Meserii · Atragere de clienți</p></div>
+            <div class="work__img work__img--placeholder"><span translate="no">FixPro</span></div>
+            <div class="work__meta">
+              <div><h3 translate="no">FixPro Instalații</h3><p>Meserii · Atragere de clienți</p></div>
+            </div>
           </div>
         </div>
       </div>
@@ -215,17 +153,17 @@
     </section>
 
     <!-- ============ PRICING ============ -->
-    <section class="section section--tint" id="pricing">
+    <section class="section section--alt" id="pricing">
       <div class="container">
         <div class="section__head reveal">
           <p class="eyebrow">Prețuri</p>
           <h2>Pachete clare. Fără <em>surprize</em>.</h2>
         </div>
-        <div class="grid grid--3 pricing">
+        <div class="pricing">
           <div class="plan reveal">
             <h3>Starter</h3>
-            <p class="plan__price">250 lei</p>
-            <p class="plan__monthly">+ 100 lei / lună mentenanță</p>
+            <p class="plan__price">250&nbsp;lei</p>
+            <p class="plan__monthly">+ 100&nbsp;lei / lună mentenanță</p>
             <p class="plan__desc">Pentru o prezență online simplă și profesionistă.</p>
             <ul>
               <li>1–3 pagini</li><li>Design adaptat pentru mobil</li><li>Formular de contact</li><li>SEO de bază</li>
@@ -235,8 +173,8 @@
           <div class="plan plan--featured reveal">
             <span class="plan__badge">Cel mai ales</span>
             <h3>Business</h3>
-            <p class="plan__price">500 lei</p>
-            <p class="plan__monthly">+ 200 lei / lună mentenanță</p>
+            <p class="plan__price">500&nbsp;lei</p>
+            <p class="plan__monthly">+ 200&nbsp;lei / lună mentenanță</p>
             <p class="plan__desc">Pentru afaceri care vor mai mulți clienți.</p>
             <ul>
               <li>Până la 8 pagini</li><li>Design personalizat</li><li>Formulare de programare / ofertă</li><li>Configurare Google Business și SEO</li><li>1 lună de mentenanță gratuită</li>
@@ -245,8 +183,8 @@
           </div>
           <div class="plan reveal">
             <h3>Pro</h3>
-            <p class="plan__price"><small>de la</small> 900 lei</p>
-            <p class="plan__monthly">+ 350 lei / lună mentenanță</p>
+            <p class="plan__price"><small>de la</small> 900&nbsp;lei</p>
+            <p class="plan__monthly">+ 350&nbsp;lei / lună mentenanță</p>
             <p class="plan__desc">Pentru afaceri care vor un site complet, cu funcții avansate.</p>
             <ul>
               <li>Pagini nelimitate</li><li>Design personalizat premium</li><li>Sistem de programări online</li><li>Site în română și engleză</li><li>SEO avansat și Google Business</li><li>Statistici despre vizitatori</li><li>Suport prioritar</li>
@@ -260,40 +198,40 @@
 
     <!-- ============ TESTIMONIALS ============ -->
     <section class="section" id="testimonials">
-      <div class="container">
-        <div class="grid grid--2">
-          <blockquote class="quote reveal">
-            <p>„Exemplu — adaugă aici o recenzie reală de la un client. De pildă: noul site ne-a adus mai multe apeluri în prima lună decât cel vechi într-un an întreg.”</p>
-            <footer><strong>Nume client</strong> · Numele afacerii</footer>
-          </blockquote>
-          <blockquote class="quote reveal">
-            <p>„Exemplu — a doua recenzie. Menționează viteza, comunicarea sau rezultatele.”</p>
-            <footer><strong>Nume client</strong> · Numele afacerii</footer>
-          </blockquote>
-        </div>
+      <div class="container quotes">
+        <blockquote class="quote reveal">
+          <svg class="quote__mark" viewBox="0 0 36 36" aria-hidden="true"><path d="M7 27c0-7 3.5-12.5 10-15.5l1.2 2.2C14.8 15.6 13 18 12.6 21H17v6H7zm14 0c0-7 3.5-12.5 10-15.5l1.2 2.2C28.8 15.6 27 18 26.6 21H31v6H21z" fill="currentColor"/></svg>
+          <p>„Exemplu — adaugă aici o recenzie reală de la un client. De pildă: noul site ne-a adus mai multe apeluri în prima lună decât cel vechi într-un an întreg.”</p>
+          <footer><strong>Nume client</strong> · Numele afacerii</footer>
+        </blockquote>
+        <blockquote class="quote reveal">
+          <svg class="quote__mark" viewBox="0 0 36 36" aria-hidden="true"><path d="M7 27c0-7 3.5-12.5 10-15.5l1.2 2.2C14.8 15.6 13 18 12.6 21H17v6H7zm14 0c0-7 3.5-12.5 10-15.5l1.2 2.2C28.8 15.6 27 18 26.6 21H31v6H21z" fill="currentColor"/></svg>
+          <p>„Exemplu — a doua recenzie. Menționează viteza, comunicarea sau rezultatele.”</p>
+          <footer><strong>Nume client</strong> · Numele afacerii</footer>
+        </blockquote>
       </div>
     </section>
 
     <!-- ============ FAQ ============ -->
-    <section class="section section--tint" id="faq">
-      <div class="container container--narrow">
+    <section class="section section--alt" id="faq">
+      <div class="container faq-layout">
         <div class="section__head reveal">
           <p class="eyebrow">Întrebări frecvente</p>
           <h2>Întrebări pe care le primim <em>des</em>.</h2>
         </div>
-        <div class="faq">
-          <details class="reveal"><summary>Cât durează realizarea unui site?</summary><p>Majoritatea site-urilor sunt gata în 2–3 săptămâni, în funcție de mărime și de cât de repede primim conținutul.</p></details>
-          <details class="reveal"><summary>Site-ul va fi al meu?</summary><p>Da. După plată, site-ul și codul îți aparțin. Fără obligații pe termen lung.</p></details>
-          <details class="reveal"><summary>Folosiți șabloane?</summary><p>Nu. Fiecare site este proiectat și programat de la zero pentru afacerea ta, așa că este mai rapid și unic.</p></details>
-          <details class="reveal"><summary>Ce trebuie să vă trimit?</summary><p>Logo-ul (dacă ai unul), texte despre afacere și fotografii. Dacă nu le ai, te ajutăm noi.</p></details>
-          <details class="reveal"><summary>Cum se face plata?</summary><p>50% la început și 50% la lansare. Prin transfer bancar sau card.</p></details>
-          <details class="reveal"><summary>Ce se întâmplă dacă nu plătesc mentenanța?</summary><p>Site-ul rămâne online. Plătești doar în lunile în care ai nevoie de modificări.</p></details>
+        <div class="faq reveal">
+          <details><summary>Cât durează realizarea unui site?</summary><p>Majoritatea site-urilor sunt gata în 2–3 săptămâni, în funcție de mărime și de cât de repede primim conținutul.</p></details>
+          <details><summary>Site-ul va fi al meu?</summary><p>Da. După plată, site-ul și codul îți aparțin. Fără obligații pe termen lung.</p></details>
+          <details><summary>Folosiți șabloane?</summary><p>Nu. Fiecare site este proiectat și programat de la zero pentru afacerea ta, așa că este mai rapid și unic.</p></details>
+          <details><summary>Ce trebuie să vă trimit?</summary><p>Logo-ul (dacă ai unul), texte despre afacere și fotografii. Dacă nu le ai, te ajutăm noi.</p></details>
+          <details><summary>Cum se face plata?</summary><p>50% la început și 50% la lansare. Prin transfer bancar sau card.</p></details>
+          <details><summary>Ce se întâmplă dacă nu plătesc mentenanța?</summary><p>Site-ul rămâne online. Plătești doar în lunile în care ai nevoie de modificări.</p></details>
         </div>
       </div>
     </section>
 
     <!-- ============ CONTACT ============ -->
-    <section class="section section--dark" id="contact">
+    <section class="section section--night" id="contact">
       <div class="container contact">
         <div class="contact__intro reveal">
           <p class="eyebrow">Contact</p>
@@ -320,11 +258,14 @@
 
   <footer class="footer">
     <div class="container footer__inner">
-      <a href="#top" class="logo" translate="no"><span class="logo__mark">S</span>Stack Studio</a>
-      <p>© <span id="year"></span> Stack Studio. Site-uri personalizate pentru afaceri.</p>
+      <a href="#top" class="logo" translate="no">
+        <svg class="logo__mark" viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="9" fill="#1c1e23"/><rect x="8" y="9" width="18" height="4" rx="2" fill="#8ea2ff"/><rect x="8" y="15" width="18" height="4" rx="2" fill="#2448f5"/><rect x="8" y="21" width="18" height="4" rx="2" fill="#f6f5f1"/></svg>
+        Stack Studio
+      </a>
+      <p>© <span id="year">2026</span> Stack Studio. Site-uri personalizate pentru afaceri.</p>
     </div>
   </footer>
 
-  <script src="script.js?v=12"></script>
+  <script src="script.js?v=13"></script>
 </body>
 </html>
