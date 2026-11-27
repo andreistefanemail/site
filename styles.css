@@ -415,3 +415,162 @@ body::after,
 @media (prefers-reduced-motion: reduce) {
   body::before { animation: none; }
 }
+
+/* ==========================================================
+   TULIP THEME — dark, burgundy and cream, Cormorant headings.
+   Overrides the earlier styles; edit the colors here.
+   ========================================================== */
+:root {
+  --t-black: #161010;     /* dark sections, text */
+  --t-black-2: #2c2222;   /* soft dark */
+  --t-cream: #f3ece9;     /* page background, text on dark */
+  --t-burgundy: #5d0e14;  /* band, labels */
+  --t-brown: #514336;     /* projects section */
+  --t-rose: #b7958b;      /* labels on dark */
+  --t-red: #ac3531;       /* buttons, accent word */
+  --t-blush: #e2cfc9;     /* lines, soft fills */
+
+  --accent: var(--t-red);
+  --accent-ink: #ffffff;
+  --highlight: var(--t-burgundy);
+  --accent-light: var(--t-rose);
+  --ink: var(--t-black);
+  --ink-soft: #5e4f4c;
+  --bg: var(--t-cream);
+  --bg-tint: #ebe1dd;
+  --card: #ffffff;
+  --line: var(--t-blush);
+  --dark: var(--t-black);
+  --dark-soft: var(--t-black-2);
+  --font-head: "Cormorant Garamond", Georgia, serif;
+  --font-body: "Manrope", system-ui, sans-serif;
+  --radius: 22px;
+  --shadow: 0 18px 40px -22px rgba(22, 16, 16, .35);
+}
+
+/* Type */
+h1, h2, h3 { font-weight: 500; letter-spacing: 0; line-height: 1.05; }
+h2 { font-size: clamp(2.4rem, 5vw, 3.8rem); }
+h3 { font-size: 1.6rem; font-weight: 600; }
+h2 em, h1 em { font-style: italic; color: var(--t-red); }
+.eyebrow { font-family: var(--font-body); font-size: .78rem; letter-spacing: .2em; color: var(--highlight); }
+.hl { font-style: italic; color: var(--t-red); white-space: normal; }
+.hl::after { display: none; }
+
+/* Buttons */
+.btn { font-weight: 600; }
+.btn:hover { box-shadow: 0 10px 24px -12px rgba(172, 53, 49, .7); }
+.btn--ghost { color: var(--ink); border-color: rgba(22, 16, 16, .35); }
+
+/* Sections on dark backgrounds keep red buttons, rose labels */
+.section--dark, .plan--featured, .footer, .hero--build, .strip {
+  --accent: var(--t-red); --accent-ink: #ffffff; --highlight: var(--t-rose);
+}
+.section--dark { background: var(--t-black); color: var(--t-cream); }
+.section--dark .btn--ghost, .hero--build .btn--ghost { color: var(--t-cream); border-color: rgba(243, 236, 233, .4); }
+.section--dark .btn--ghost:hover, .hero--build .btn--ghost:hover { background: var(--t-cream); color: var(--t-black); border-color: var(--t-cream); }
+
+/* Nav: dark, like the florist header */
+.nav { background: rgba(22, 16, 16, .94); }
+.nav.is-scrolled { border-color: rgba(243, 236, 233, .1); }
+.logo { color: var(--t-cream); font: 600 1.55rem var(--font-head); }
+.logo__mark { background: var(--t-red); color: #fff; font: 600 1.15rem var(--font-head); border-radius: 50% 50% 8px 8px / 45% 45% 8px 8px; }
+.nav__links a:not(.btn) { color: rgba(243, 236, 233, .72); }
+.nav__links a:not(.btn):hover { color: var(--t-cream); }
+.nav__toggle span { background: var(--t-cream); }
+.lang { background: var(--t-black-2); border-color: rgba(243, 236, 233, .14); }
+.lang a { color: rgba(243, 236, 233, .65); }
+.lang a:hover { color: var(--t-cream); }
+.lang a.is-active { background: var(--t-red); color: #fff; }
+@media (max-width: 760px) {
+  .nav__links { background: var(--t-black); border-bottom-color: rgba(243, 236, 233, .1); }
+  .nav__links a:not(.btn) { border-bottom-color: rgba(243, 236, 233, .1); }
+}
+
+/* Hero: dark with the build animation */
+.hero--build { background: var(--t-black); color: var(--t-cream); }
+.hero--build .hero__title { font-size: clamp(2.9rem, 5.8vw, 5rem); max-width: 12ch; }
+.hero--build .hero__lead { color: rgba(243, 236, 233, .74); }
+.hero--build .sbh-step { border-top-color: rgba(243, 236, 233, .12); color: rgba(243, 236, 233, .42); }
+.hero--build .sbh-step.done, .hero--build .sbh-step.active { color: var(--t-cream); }
+.hero--build .sbh-step.done .n { background: var(--t-black-2); color: var(--t-cream); }
+.hero--build .sbh-step.active .n { background: var(--t-red); color: #fff; }
+.hero--build .sbh-step .d { color: var(--t-rose); }
+.hero--build .sbh-browser { box-shadow: 0 30px 80px rgba(0, 0, 0, .5), 0 0 0 1px rgba(243, 236, 233, .08); }
+.hero--build .sbh-chrome { background: #f5efec; border-bottom-color: #e8dedA; }
+.hero--build .sbh-dots i { background: #dccdc8; }
+.hero--build .sbh-url { border-color: #e8deda; }
+.hero--build .sbh-live { background: #f6e2df; color: var(--t-red); }
+.hero--build .sbh-status { color: rgba(243, 236, 233, .6); }
+.hero--build .sbh-status b { color: var(--t-cream); }
+.hero--build .sbh-bar { background: var(--t-black-2); }
+.hero--build .sbh-bar i { background: var(--t-red); }
+@keyframes sbhPulse { 0% { box-shadow: 0 0 0 0 rgba(172, 53, 49, .4); } 100% { box-shadow: 0 0 0 1.6cqw rgba(172, 53, 49, 0); } }
+
+/* Burgundy band under the hero */
+.strip { background: var(--t-burgundy); color: var(--t-cream); padding: 30px 0; }
+.strip__list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.strip__item { display: flex; align-items: center; gap: 14px; }
+.strip__item svg { flex: none; width: 26px; height: 26px; }
+.strip__item strong { display: block; font: 600 1.35rem/1.1 var(--font-head); }
+.strip__item span { font-size: .88rem; color: rgba(243, 236, 233, .72); }
+@media (max-width: 760px) { .strip__list { grid-template-columns: 1fr; gap: 1rem; } }
+
+/* Service cards: white, rose border, arch-shaped icon */
+.card { border-color: var(--line); border-radius: var(--radius); }
+.card h3 { font-size: 1.65rem; }
+.card__icon { background: var(--t-cream); color: var(--t-red); border-radius: 50% 50% 10px 10px / 45% 45% 10px 10px; width: 50px; height: 56px; }
+
+/* Projects: warm brown, like the florist events section */
+#work.section--dark { background: var(--t-brown); }
+.filter { color: rgba(243, 236, 233, .7); border-color: rgba(243, 236, 233, .25); }
+.filter:hover { color: var(--t-cream); border-color: rgba(243, 236, 233, .6); }
+.work__img { border-radius: var(--radius); }
+.work__meta h3 { font-size: 1.7rem; }
+.work__meta p { color: rgba(243, 236, 233, .7); }
+
+/* Process */
+.step { border-top: 1px solid var(--t-red); }
+.step__n { font-family: var(--font-body); color: var(--t-red); }
+.step h3 { font-size: 1.7rem; }
+
+/* Pricing */
+.plan { border-color: var(--line); }
+.plan h3 { font-size: 1.9rem; }
+.plan__price { font-weight: 600; font-size: 3rem; }
+.plan li { border-bottom-color: var(--line); }
+.plan li::before { color: var(--t-red); }
+.plan--featured { background: var(--t-black); border-color: var(--t-black); }
+.plan--featured li { border-color: rgba(243, 236, 233, .12); }
+.plan--featured .plan__price small, .plan--featured .plan__desc { color: rgba(243, 236, 233, .65); }
+.plan__monthly { color: var(--t-red); font-family: var(--font-body); font-size: .9rem; }
+.plan--featured .plan__monthly { color: var(--t-rose); }
+
+/* Testimonials and FAQ */
+.quote { border-color: var(--line); }
+.quote p { font: italic 500 1.55rem/1.4 var(--font-head); }
+.faq summary { font: 600 1.4rem var(--font-head); }
+.faq summary::after { color: var(--t-red); }
+
+/* Contact form on dark */
+.form { background: var(--t-black-2); }
+.form label { color: rgba(243, 236, 233, .72); }
+.form input, .form select, .form textarea { background: #1d1515; border-color: #3d2e2e; }
+.form__status { color: #e9b8b1; }
+.contact__intro > p { color: rgba(243, 236, 233, .72); }
+
+/* Footer */
+.footer { background: var(--t-black); color: rgba(243, 236, 233, .55); border-top-color: rgba(243, 236, 233, .08); }
+.footer .logo { color: var(--t-cream); }
+
+/* Page background glows in tulip tones */
+body::before {
+  background:
+    radial-gradient(38vmax 38vmax at 8% 20%,  rgba(183, 149, 139, .32), transparent 70%),
+    radial-gradient(34vmax 34vmax at 100% 60%, rgba(172, 53, 49, .10), transparent 70%),
+    radial-gradient(30vmax 30vmax at 20% 100%, rgba(226, 207, 201, .55), transparent 70%);
+}
+body::after { background-image: radial-gradient(circle at 1px 1px, rgba(93, 14, 20, .18) 1.1px, transparent 0); }
+#work h2 em { color: var(--t-blush); }
+.sbh-step .n { font-family: var(--font-body); }
+.container--narrow h2 { font-size: clamp(2.2rem, 4.4vw, 3.2rem); }
